@@ -11,6 +11,8 @@
   export default {
     components:{
       Test,
+      GridLayout: VueGridLayout.GridLayout,
+      GridItem: VueGridLayout.GridItem,
     },
     name: 'monotrade-frontend'
   }
