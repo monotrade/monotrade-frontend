@@ -108,6 +108,7 @@ let rendererConfig = {
       template: path.resolve(__dirname, '../src/index.ejs'),
 
       // fix error: process is not defined
+      // ref : https://www.jianshu.com/p/bdf0a23e7257
       // downgrade node to v11 may resolve this problem.
       // if use node v12+, should add follow templateParameters:
       templateParameters(compilation, assets, options) {

@@ -78,21 +78,7 @@ let webConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../src/index.ejs'),
-      // fix error: process is not defined
-      // downgrade node to v11 may resolve this problem.
-      // if use node v12+, should add follow templateParameters:
-      templateParameters(compilation, assets, options) {
-        return {
-          compilation: compilation,
-          webpack: compilation.getStats().toJson(),
-          webpackConfig: compilation.options,
-          htmlWebpackPlugin: {
-            files: assets,
-            options: options
-          },
-          process,
-        };
-      },
+      
       minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
