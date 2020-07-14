@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow , Menu} from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -14,6 +14,7 @@ const winURL = process.env.NODE_ENV === 'development'
   : `file://${__dirname}/index.html`
 
 function createWindow () {
+  //Menu.setApplicationMenu(null);
   /**
    * Initial window options
    */
@@ -24,16 +25,40 @@ function createWindow () {
   })
 
   mainWindow.loadURL(winURL)
-  createMenu();
+  
   mainWindow.on('closed', () => {
     mainWindow = null
   })
 }
 
 
-const createMenu = () => {
-  if (process.env.NODE_ENV !== 'development') {
-    const template = [{
+const menuTemplate = [
+    {
+        label: 'Edit App',
+        submenu: [
+            {
+                label: 'Undo'
+            },
+            {
+                label: 'Redo'
+            }
+        ]
+    },
+    {
+        label: 'View App',
+        submenu: [
+            {
+                label: 'Reload'
+            },
+            {
+                type: 'separator'
+            },
+            {
+                label: 'Toggle Full Screen'
+            }
+        ]
+    },
+    {
       label: '编辑',
       submenu: [
         { label: 'Undo', accelerator: 'CmdOrCtrl+Z', selector: 'undo:' },
@@ -51,12 +76,29 @@ const createMenu = () => {
           }
         }
       ]
-    }]
-    menu = Menu.buildFromTemplate(template)
-    Menu.setApplicationMenu(menu)
-  }
-}
+    }
+];
+
+
 app.on('ready', createWindow)
+app.on('ready', () => {
+  if (process.platform === 'darwin') {
+    template.unshift({
+        label: app.getName(),
+        submenu: [
+            {
+                label: 'Quit',
+                accelerator: 'CmdOrCtrl+Q',
+                click() {
+                    app.quit();
+                }
+            }
+        ]
+    });
+  }
+  const appMenu = Menu.buildFromTemplate(menuTemplate);
+  Menu.setApplicationMenu(appMenu);
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -69,6 +111,40 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+
+
+const createDockMenu = () => {
+    const dockTempalte = [
+        {
+            label: 'New Window',
+            click () {
+                console.log('New Window');
+            }
+        }, {
+            label: 'New Window with Settings',
+            submenu: [
+                { label: 'Basic' },
+                { label: 'Pro' }
+            ]
+        },
+        {
+            label: 'New Command...'
+        }
+    ];
+
+    const dockMenu = Menu.buildFromTemplate(dockTempalte);
+    if(app.dock){
+      app.dock.setMenu(dockMenu);
+    }
+}
+
+app.on('ready', function() {
+    createDockMenu();
+});
+
+
+
 
 /**
  * Auto Updater

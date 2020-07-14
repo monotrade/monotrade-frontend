@@ -1,6 +1,9 @@
 import Vue from 'vue'
 
 import App from './App'
+import Main from './views/Main.vue'
+
+
 import router from './router'
 
 import ElementUI from 'element-ui' //element-ui的全部组件
@@ -16,7 +19,7 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  components: { App },
+  components: { App,Main },
   router,
-  template: '<App/>'
+  template: '<Main/>'
 }).$mount('#app')

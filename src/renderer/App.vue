@@ -25,6 +25,35 @@
     },
     name: 'monotrade-frontend'
   }
+
+
+
+  //context menu
+  const { remote } = require('electron');
+const { Menu } = remote;
+
+const createContextMenu = () => {
+    const contextTemplate = [
+        {
+            label: 'Cut',
+            role: 'cut'
+        },
+        {
+            label: 'Copy',
+            role: 'copy'
+        }
+    ];
+    const contextMenu = Menu.buildFromTemplate(contextTemplate);
+    return contextMenu;
+}
+
+window.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+    const contextMenu = createContextMenu();
+    contextMenu.popup({
+        window: remote.getCurrentWindow()
+    });
+}, false);
 </script>
 
 <style>
