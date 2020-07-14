@@ -8,8 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css'//element-ui的css
 Vue.use(ElementUI) //使用elementUI
 
 
-//拖拽功能的组件vue-grid-layout
-import VueGridLayout from 'vue-grid-layout';
+
 
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
