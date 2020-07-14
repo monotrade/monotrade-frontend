@@ -24,7 +24,9 @@ function createWindow () {
     width: 1000
   })
 
-  mainWindow.loadURL(winURL)
+  mainWindow.loadURL(winURL);
+
+  mainWindow.maximize();
   
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -83,9 +85,17 @@ const menuTemplate = [
 app.on('ready', createWindow)
 app.on('ready', () => {
   if (process.platform === 'darwin') {
-    template.unshift({
+
+    menuTemplate.unshift({
         label: app.getName(),
         submenu: [
+            {
+                label: '关于',
+                //accelerator: 'CmdOrCtrl+Q',
+                click() {
+                    app.quit();
+                }
+            },
             {
                 label: 'Quit',
                 accelerator: 'CmdOrCtrl+Q',
