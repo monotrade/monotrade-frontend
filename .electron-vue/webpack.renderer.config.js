@@ -7,7 +7,6 @@ const { dependencies } = require('../package.json')
 const webpack = require('webpack')
 
 
-const EncodingPlugin = require('webpack-encoding-plugin');
 const MinifyPlugin = require("babel-minify-webpack-plugin")
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -103,9 +102,6 @@ let rendererConfig = {
     __filename: process.env.NODE_ENV !== 'production'
   },
   plugins: [
-    new EncodingPlugin({
-      encoding: 'UTF-8'
-    }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({filename: 'styles.css'}),
     new HtmlWebpackPlugin({
