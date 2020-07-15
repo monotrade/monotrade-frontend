@@ -1,56 +1,22 @@
 <template>
-  <div id="main">
-    <el-container style="height: 500px; border: 1px solid #eee">
+    <el-container style="height:100%; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-        <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
-      </el-aside>
-        <!-- <el-header style="text-align: right; font-size: 12px">
-          <el-dropdown>
-            <i class="el-icon-setting" style="margin-right: 15px"></i>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>查看</el-dropdown-item>
-              <el-dropdown-item>新增</el-dropdown-item>
-              <el-dropdown-item>删除</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-          <span>王小虎</span>
-        </el-header> -->
-        
-        <el-main>
-          <div>
-        
-          <el-tabs v-model="activeName">
-            <el-tab-pane label="tab1" name="first" :key="'first'">
-                    <div style="background: yellow; display: inline">
-                         <Test></Test>
-                    </div>
-            </el-tab-pane>
-
-            <el-tab-pane label="tab2" name="second" :key="'second'">
-                    <div style="background: green; display: inline">
-                        3、在模板中使用kebab-case 两种都可以
-                        <demoPop></demoPop> 
-                        <demo-pop></demo-pop>
-                    </div>
-            </el-tab-pane>
-
-            <el-tab-pane label="tab3" name="third" :key="'third'">
-                    <div style="background: yellow; display: inline">
-                         <router-view></router-view>
-                    </div>
-            </el-tab-pane>
-
-
-        </el-tabs>
-        </div>
-        </el-main>
-      <el-container>
-   
-     
-    
+        <Nav v-on:openComponent="openComponent"></Nav>
+      </el-aside>        
+      <el-main>
+        <el-tabs type="border-card" editableTabsValue v-model="editableTabsValue">
+          <el-tab-pane
+            :key="item.name"
+            v-for="(item, index) in editableTabs"
+            :label="item.title"
+            :name="item.name"            
+          >
+           <component v-bind:is="item.component"></component>
+          
+          </el-tab-pane>           
+      </el-tabs>
+    </el-main>      
   </el-container>
-  </el-container>
-  </div>
 </template>
 
 <script>
@@ -74,52 +40,69 @@
     name: 'monotrade-frontend',
     data() {
       return {
+        editableTabsValue: '2',
+        editableTabs: [
+          {
+            title: 'Tab 1',
+            name: '1',
+            //content: 'Tab 1 content',
+            //comName: 'Test'
+            component: Test,
+          }, 
+          {
+            title: 'Tab 2',
+            name: '2',
+            //content: 'Tab 2 content',
+            //comName: 'demoPop'
+            component: demoPop,
+          }
+        ],
+
+        tabIndex: 2,
+      
         activeName : "first",
-        data: [{
-          label: '组件测试',
-          children: [{
-            label: '交易组件',
-            children: [{
-              label: '现货买入',
-              component: require('@/components/trade/stockBuy').default,
-            }]
-          }]
-        }, {
-          label: '一级 2',
-          children: [{
-            label: '二级 2-1',
-            children: [{
-              label: '三级 2-1-1'
-            }]
-          }, {
-            label: '二级 2-2',
-            children: [{
-              label: '三级 2-2-1'
-            }]
-          }]
-        }, {
-          label: '一级 3',
-          children: [{
-            label: '二级 3-1',
-            children: [{
-              label: '三级 3-1-1'
-            }]
-          }, {
-            label: '二级 3-2',
-            children: [{
-              label: '三级 3-2-1'
-            }]
-          }]
-        }],
-        defaultProps: {
-          children: 'children',
-          label: 'label'
-        }
+        
+        
       };
     },
     methods: {
-      handleNodeClick(data) {
-        console.log(data);
+      openComponent(label,component) {
+        console.log("openComponent", component);
+        let newTabName = ++this.tabIndex + '';
+        this.editableTabs.push({
+          title: label,
+          name: newTabName,
+          component: component,
+        });
+      },
+
+     handleTabsEdit(targetName, action) {
+        // if (action === 'add') {
+        //   let newTabName = ++this.tabIndex + '';
+        //   this.editableTabs.push({
+        //     title: 'New Tab',
+        //     name: newTabName,
+        //     content: 'New Tab content'
+        //   });
+        //   this.editableTabsValue = newTabName;
+        // }
+        if (action === 'remove') {
+          let tabs = this.editableTabs;
+          let activeName = this.editableTabsValue;
+          if (activeName === targetName) {
+            tabs.forEach((tab, index) => {
+              if (tab.name === targetName) {
+                let nextTab = tabs[index + 1] || tabs[index - 1];
+                if (nextTab) {
+                  activeName = nextTab.name;
+                }
+              }
+            });
+          }
+          
+          this.editableTabsValue = activeName;
+          this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+        }
       }
     },
 
@@ -129,4 +112,12 @@
 
 <style>
   /* CSS */
+  html,
+  body,
+  #app,
+  .el-tabs,
+  .el-container {
+    margin: 0px;
+    height: 100%;
+  }
 </style>

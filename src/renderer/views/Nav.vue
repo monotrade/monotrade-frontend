@@ -1,21 +1,5 @@
 <template>
-  <div id="nav">
-    <el-menu unique-opened :default-active="$route.path" class="my-menu" router background-color="#324157" text-color="#fff" >
-            <template  v-for="(item , index) in $router.options.routes" v-if="item.meta.menuShow">
-                <el-submenu :index="item.path" v-if="item.children && item.children.length > 1">
-                    <template slot="title">
-                        {{item.meta.menuName}}
-                    </template>
-                    <el-menu-item v-for="(itemChild , index) in item.children" :index="itemChild.path" :key="index" v-if="itemChild.meta.menuShow">
-                        <span>{{itemChild.meta.menuName}}</span>
-                    </el-menu-item>
-                </el-submenu>
-                <el-menu-item :index="item.children[0].path" v-else>
-                    {{item.children[0].meta.menuName}}
-                </el-menu-item>
-            </template>
-        </el-menu>
-  </div>
+  <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
 </template>
 
 <style>
@@ -31,16 +15,68 @@
 </style>
 
 <script>
-  export default {
-    // data() {
-    //   const item = {
-    //     date: '2016-05-02',
-    //     name: '王小虎',
-    //     address: '上海市普陀区金沙江路 1518 弄'
-    //   };
-    //   return {
-    //     tableData: Array(20).fill(item)
-    //   }
-    // }
-  };
+
+const nav_data = [
+  {
+    label: '组件测试',
+    children: [{
+      label: '交易组件',
+      children: [{
+        label: '现货买入',
+        component: require('@/components/trade/stockBuy').default,
+      }]
+    }]
+  }, 
+  {
+    label: '一级 2',
+    children: [{
+      label: '二级 2-1',
+      children: [{
+        label: '三级 2-1-1'
+      }]
+    }, {
+      label: '二级 2-2',
+      children: [{
+        label: '三级 2-2-1'
+      }]
+    }]
+  }, 
+  {
+    label: '一级 3',
+    children: [{
+      label: '二级 3-1',
+      children: [{
+        label: '三级 3-1-1'
+      }]
+    }, {
+      label: '二级 3-2',
+      children: [{
+        label: '三级 3-2-1'
+      }]
+    }]
+  }
+]
+
+export default {
+  data() {      
+    return {
+      defaultProps: {
+          children: 'children',
+          label: 'label'
+      },
+      data: nav_data,
+    }
+  },
+
+  methods: {
+    handleNodeClick(data) {
+      if(data.component)
+      {
+        // console.log('To go'); 
+        // console.log(data.component);
+        this.$emit("openComponent", data.label, data.component)
+      }
+    },
+  }
+};
 </script>

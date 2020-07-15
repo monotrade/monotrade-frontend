@@ -36,7 +36,7 @@ function createWindow () {
 
 const menuTemplate = [
     {
-        label: 'Edit App',
+        label: 'ETF做市',
         submenu: [
             {
                 label: 'Undo'
@@ -47,7 +47,7 @@ const menuTemplate = [
         ]
     },
     {
-        label: 'View App',
+        label: '股转做市',
         submenu: [
             {
                 label: 'Reload'
