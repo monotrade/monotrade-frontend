@@ -4,7 +4,8 @@
         <Nav v-on:openComponent="openComponent"></Nav>
       </el-aside>        
       <el-main>
-        <el-tabs type="border-card" editableTabsValue v-model="editableTabsValue">
+        <el-tabs type="border-card" v-model="editableTabsValue"
+          editable @edit="handleTabsEdit">
           <el-tab-pane
             :key="item.name"
             v-for="(item, index) in editableTabs"
@@ -23,7 +24,7 @@
   import Nav from './Nav.vue'
   import Test from '../components/TestElementUI.vue'
   import demoPop from '../components/demoPop.vue'
-
+  import orderBook from '../components/market/orderBook.vue'
 
   //拖拽功能的组件vue-grid-layout
   import VueGridLayout from 'vue-grid-layout';
@@ -40,14 +41,14 @@
     name: 'monotrade-frontend',
     data() {
       return {
-        editableTabsValue: '2',
+        editableTabsValue: '1',
         editableTabs: [
           {
             title: 'Tab 1',
             name: '1',
             //content: 'Tab 1 content',
             //comName: 'Test'
-            component: Test,
+            component: orderBook,
           }, 
           {
             title: 'Tab 2',
@@ -67,13 +68,14 @@
     },
     methods: {
       openComponent(label,component) {
-        console.log("openComponent", component);
+        //console.log("openComponent", component);
         let newTabName = ++this.tabIndex + '';
         this.editableTabs.push({
           title: label,
           name: newTabName,
           component: component,
         });
+        this.editableTabsValue = newTabName;
       },
 
      handleTabsEdit(targetName, action) {

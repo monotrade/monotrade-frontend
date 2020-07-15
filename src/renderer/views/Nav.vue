@@ -24,37 +24,47 @@ const nav_data = [
       children: [{
         label: '现货买入',
         component: require('@/components/trade/stockBuy').default,
+      }, {
+        label: '现货卖出',
+        component: require('@/components/trade/stockSell').default,
+      }, {        
+        label: '点价交易',
+        component: require('@/components/trade/pointingTrade').default,
+      }, {
+        label: '基金申赎',
+        component: require('@/components/trade/fundDealing').default,
+      }, {
+        label: '期货交易',
+        component: require('@/components/trade/futureTrade').default,
+      }, {
+        label: '期权交易',
+        component: require('@/components/trade/optionTrade').default,
       }]
-    }]
+    }, {
+      label: '市场组件',
+      children: [{
+        label: '五档行情',
+        component: require('@/components/market/orderBook').default,
+      }, {
+        label: '通用行情组件',
+        component: require('@/components/market/generalMarket').default,
+      }]
+    }],
   }, 
   {
-    label: '一级 2',
+    label: '视图测试',
     children: [{
-      label: '二级 2-1',
+      label: 'ETF做市',
       children: [{
         label: '三级 2-1-1'
       }]
     }, {
-      label: '二级 2-2',
+      label: '股转做市',
       children: [{
         label: '三级 2-2-1'
       }]
     }]
   }, 
-  {
-    label: '一级 3',
-    children: [{
-      label: '二级 3-1',
-      children: [{
-        label: '三级 3-1-1'
-      }]
-    }, {
-      label: '二级 3-2',
-      children: [{
-        label: '三级 3-2-1'
-      }]
-    }]
-  }
 ]
 
 export default {
