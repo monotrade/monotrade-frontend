@@ -20,8 +20,7 @@
     components:{
       Test,
       demoPop,
-      GridLayout: VueGridLayout.GridLayout,
-      GridItem: VueGridLayout.GridItem,
+      
     },
     name: 'monotrade-frontend'
   }
@@ -30,9 +29,9 @@
 
   //context menu
   const { remote } = require('electron');
-const { Menu } = remote;
+  const { Menu } = remote;
 
-const createContextMenu = () => {
+  const createContextMenu = () => {
     const contextTemplate = [
         {
             label: 'Cut',
