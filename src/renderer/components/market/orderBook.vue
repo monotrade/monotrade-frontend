@@ -1,25 +1,22 @@
 <template>
-  <el-table :data="tableData">
-        <el-table-column
-        label="标题">
-        <template slot-scope="scope" >
-            <span height="20">{{ scope.row.date}}</span>
-        </template>
-        </el-table-column>
- 
-        <el-table-column
-        label="ID">
-        <template slot-scope="scope">
-            <span>{{ scope.row.name}}</span>
-        </template>
-        </el-table-column>
-     
-        <el-table-column>
-            <template slot-scope="scope">
-                <el-button @click="TellMeId(scope.row.address)">TellMe</el-button> 
-            </template>
-        </el-table-column>
-  </el-table>
+  <div>
+  <el-row :gutter="20">
+    <el-col :span="8">卖5</el-col>
+    <el-col :span="8">18.20</el-col>
+    <el-col :span="8">390000</el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="8">abc</el-col>
+  <el-col :span="8">abc</el-col>
+  <el-col :span="4">abc</el-col>
+  <el-col :span="4">abc</el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="4">abc</el-col>
+  <el-col :span="16">abc</el-col>
+  <el-col :span="4">abc</el-col>
+</el-row>
+</div>
 </template>
 
 <script>
@@ -50,9 +47,32 @@
 
 
 <style>
-.el-table {
-    margin: 0px;
-    height: 100%;
-    background-color: 0xff0000;
-}
+  .el-row {
+    margin-bottom: 20px;
+    width:260px;
+    &:last-child {
+      margin-bottom: 0;
+
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
 </style>
