@@ -17,8 +17,10 @@
     "@jiaminghi/data-view": "^2.9.4",
     "core-js": "^3.6.5",
     "echarts": "^4.8.0",
+    "element-ui": "^2.13.2",
     "vue": "^2.6.11",
     "vue-awesome": "^4.0.2",
+    "vue-grid-layout": "^2.3.7",
     "vue-router": "^3.2.0",
     "vuex": "^3.5.1"
   },

@@ -12,7 +12,7 @@
             :label="item.title"
             :name="item.name"            
           >
-           <component v-bind:is="item.component"></component>
+           <component v-bind:is="item.component" :id="index"></component>
           
           </el-tab-pane>           
       </el-tabs>

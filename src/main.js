@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
+//import App from './App'	//可以不写 .vue
 import router from './router';
 import store from './store';
 import dataV from '@jiaminghi/data-view';
@@ -22,10 +23,28 @@ import '@/common/flexible.js';
 // 引入全局css
 import './assets/scss/style.scss';
 
+
+
+
+import Main from './views/Main.vue'
+
+import ElementUI from 'element-ui' //element-ui的全部组件
+import 'element-ui/lib/theme-chalk/index.css'//element-ui的css
+Vue.use(ElementUI) //使用elementUI
+
+
+//if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
+
+
+
+
+
 Vue.config.productionTip = false;
 
 new Vue({
+  components: { App,Main },
   router,
   store,
   render: (h) => h(App),
+  //template: '<Main/>'
 }).$mount('#app');

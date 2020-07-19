@@ -55,7 +55,7 @@ const nav_data = [
     label: '视图测试',
     children: [{
       label: 'Dashboard',
-      component: require('@/views/datav/index').default,
+      component: require('@/views/index').default,
     }, {
       label: 'ETF做市',
       children: [{
