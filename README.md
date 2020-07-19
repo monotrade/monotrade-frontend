@@ -1,5 +1,7 @@
 # monotrade-frontend
 
+
+
 > An electron-vue project
 
 #### Build Setup
@@ -23,18 +25,24 @@ This project was generated with [electron-vue](https://github.com/SimulatedGREG/
 
 #### ref
 
-1. [Vue和DataV强强联合，这个大数据可视化模板你一定要拥有](https://zhuanlan.zhihu.com/p/150440638)
+- [2019 年如何搭建你的 Vue 项目](https://zhuanlan.zhihu.com/p/70752505)
+
+  + @vue/cli
+  + vue ui
+  + 安装electron-builder插件
+
+- [Vue和DataV强强联合，这个大数据可视化模板你一定要拥有](https://zhuanlan.zhihu.com/p/150440638)
 
 `git@gitee.com:holbrook/big-screen-vue-datav.git`
 
-[DataV 官方文档](http://datav.jiaminghi.com/guide/)
+- [DataV 官方文档](http://datav.jiaminghi.com/guide/)
 
-[echarts 实例](https://www.echartsjs.com/examples/zh/index.html)
+- [echarts 实例](https://www.echartsjs.com/examples/zh/index.html)
 
-[echarts 官方文档](https://www.echartsjs.com/zh/option.html#title)
+- [echarts 官方文档](https://www.echartsjs.com/zh/option.html#title)
 
 
-[axojs数据交互](http://axios-js.com/zh-cn/docs/)
+- [axojs数据交互](http://axios-js.com/zh-cn/docs/)
 
 
 如何动态渲染图表
