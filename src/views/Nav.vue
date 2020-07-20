@@ -49,6 +49,19 @@ const nav_data = [
         label: '通用行情组件',
         component: require('@/components/market/generalMarket').default,
       }]
+    }, {
+      label: '监控组件',
+      children: [{
+        label: '可用资金',
+        component: require('@/components/monitor/account').default,
+      }, {
+        label: '做市时长',
+        component: require('@/components/monitor/mmtime').default,
+      }, {
+        label: '做市时长2',
+        component: require('@/components/monitor/mmtime2').default,
+      }, 
+      ]
     }],
   }, 
   {
