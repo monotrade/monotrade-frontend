@@ -60,6 +60,9 @@ const nav_data = [
       }, {
         label: '做市时长2',
         component: require('@/components/monitor/mmtime2').default,
+      }, {
+        label: 'socket.io demo',
+        component: require('@/components/monitor/socketio-demo').default,
       }, 
       ]
     }],
