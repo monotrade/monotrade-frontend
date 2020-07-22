@@ -99,13 +99,16 @@ function createWindow() {
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+      //跨域访问临时解决方案
+      webSecurity: false,
     }
   })
 
   //跨域访问？？？
-  // let win1 = new BrowserWindow();
-  // win1.loadURL("http://localhost:8000/aaaaaa");
+  //https://newsn.net/say/electron-websecurity.html
+  let win1 = new BrowserWindow();
+  win1.loadURL("http://localhost:8000/chat");
 
 
   createMenu();
