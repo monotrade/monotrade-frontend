@@ -21,13 +21,17 @@ import VueSocketIO from 'vue-socket.io'
 
 Vue.use(new VueSocketIO({
     debug: true,
-    connection: 'http://localhost:1221',
+    connection: 'http://localhost:8000',
     // vuex: {
     //     store,
     //     actionPrefix: 'SOCKET_',
     //     mutationPrefix: 'SOCKET_'
     // },
-    options: { path: "/my-app/" } //Optional options
+    //origins: '*:*',
+    options: { 
+      path: "/my-app/",
+      
+      } //Optional options
 }))
 //socket可以与vuex结合使用
 //import store from'./yourstore'
@@ -70,6 +74,7 @@ Vue.use(ElementUI) //使用elementUI
 Vue.config.productionTip = false;
 
 new Vue({
+  // 全局注册组件
   components: { App,Main },
   router,
   store,

@@ -103,6 +103,10 @@ function createWindow() {
     }
   })
 
+  //跨域访问？？？
+  // let win1 = new BrowserWindow();
+  // win1.loadURL("http://localhost:8000/aaaaaa");
+
 
   createMenu();
 

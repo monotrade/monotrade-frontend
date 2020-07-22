@@ -1,37 +1,67 @@
 <template>
-  <div>
-    <dv-digital-flop id="a" :config="config" style="width:200px;height:50px;" />
-    <button @click = "add()" style = "font-size:25px;">+</button>
-    <button @click = "minus()" style = "font-size:25px;">-</button>
+  <!-- 4个主要的数据 -->
+  <div class="bottom-data">
+    <div class="item-box" v-for="(item,index) in numberData" :key="index">
+      <dv-digital-flop :config="item.number" style="width:200px;height:.625rem;" />      
+    </div>
   </div>
 </template>
 
 <script>
-
-const config1 = {
-  number: [100],
-  content: '{nt}个'
-}
-
 export default {
 	data(){
 		return {
-			config: config1,
+			numberData: [
+        {
+          number: {
+            number: [15],
+            toFixed: 1,
+            content: "{nt}(件)"
+          },
+          text: "今日构建总量"
+        },
+        {
+          number: {
+            number: [1144],
+            toFixed: 1,
+            content: "{nt}"
+          },
+          text: "总共完成数量"
+        },
+        {
+          number: {
+            number: [361],
+            toFixed: 1,
+            content: "{nt}"
+          },
+          text: "正在编译数量"
+        },
+        {
+          number: {
+            number: [157],
+            toFixed: 1,
+            content: "{nt}"
+          },
+          text: "未通过数量"
+        }
+      ]
 		}
 	},
+  
+  mounted() {
+    this.changeTiming();
+  },
   methods: {
-    // computed: {
-    //   config: {
-    //     get: function(){
-    //     return {{number: this.newconfig.number, content: this.config}}
-    //     }
-    //   },
-    // },
-    add() {
-      this.$data.config.number += 100;
+    changeTiming() {
+      setInterval(() => {
+        this.changeNumber();
+      }, 3000);
     },
-    minus() {
-      this.config.number-=100;
+    changeNumber() {
+      this.numberData.forEach((item, index) => {
+        item.number.number[0] += ++index;
+        item.number = { ...item.number };
+      });
     }
   }
 }
