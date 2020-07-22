@@ -2,7 +2,11 @@
   <!-- 4个主要的数据 -->
   <div class="bottom-data">
     <div class="item-box" v-for="(item,index) in numberData" :key="index">
-      <dv-digital-flop :config="item.number" style="width:200px;height:.625rem;" />      
+      <dv-digital-flop :config="item.number" style="width:200px;height:.625rem;" />
+      <br/>
+      <button @click="add()">+++</button>
+
+      <button @click="minus()">---</button> 
     </div>
   </div>
 </template>
@@ -28,22 +32,6 @@ export default {
           },
           text: "总共完成数量"
         },
-        {
-          number: {
-            number: [361],
-            toFixed: 1,
-            content: "{nt}"
-          },
-          text: "正在编译数量"
-        },
-        {
-          number: {
-            number: [157],
-            toFixed: 1,
-            content: "{nt}"
-          },
-          text: "未通过数量"
-        }
       ]
 		}
 	},
@@ -62,6 +50,13 @@ export default {
         item.number.number[0] += ++index;
         item.number = { ...item.number };
       });
+    },
+    add(){
+      console.log('add');
+      this.$socket.emit('add', {numberData: this.numberData}); 
+    },
+    minus(){
+      console.log('minus');
     }
   }
 }
