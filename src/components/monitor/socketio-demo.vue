@@ -46,9 +46,10 @@ export default {
   
   mounted() {
     this.changeTiming();
-    if(!this.$socket.connected){
-      this.$socket.connect();
-    }
+    this.$socket.on('server message',  function(data){
+        console.log('received server message');
+        console.log(data);
+      });
     this.$socket.emit('client message', {msg:'hi, server'});
   },
   methods: {
@@ -61,8 +62,6 @@ export default {
       this.numberData.forEach((item, index) => {
         item.number.number[0] += ++index;
         item.number = { ...item.number };
-        console.log(this.$socket.connected);
-        this.$socket.emit('client message', {msg:'hi, server',data: this.numberData});
       });
     },
     add(){
@@ -72,8 +71,19 @@ export default {
     },
     minus(){
       console.log('minus');
+      console.log(this.$socket.connected);
+
+      this.$socket.on('server message',  function(data){
+        console.log('received server message');
+        console.log(data);
+      });
+
+
+
       // socket.emit()用户客户端向服务端发送消息，服务端与之对应的是socket.on()来接收信息。
-      this.$socket.emit('client message', {msg:'hi, server'});
+      this.$socket.emit('client message', {msg:'hi, server',data: this.numberData},(msg)=>{
+        console.log(msg);
+      });
 
       // socket.on()用于接收服务端发来的消息
       this.$socket.on('connect',  ()=>{
