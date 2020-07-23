@@ -32,14 +32,12 @@ export default {
 
   //######  vue-socket.io 中， 使用 socket.on 接收不到消息，只能使用 sockets.listener.subscribe
 
-// this.$socket.on('server',  function(data){
-//             console.log('received server message');
-//             console.log(data);
-//             this.response = data;
-//           });
-this.sockets.listener.subscribe('server', (data) => {
-   console.log('++++++++++',data)
-  })
+//this.$socket.on('server',  function(data){
+this.sockets.listener.subscribe('server', (data) => {	
+            console.log('received server message');
+            console.log(data);
+            this.response = data;
+          });
 
   },
   methods: {

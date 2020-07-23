@@ -7,6 +7,7 @@
       <button @click="add()">+++</button>
 
       <button @click="minus()">---</button> 
+      <p> {{response}} </p>
     </div>
   </div>
 </template>
@@ -23,6 +24,7 @@ export default {
   },
 	data(){
 		return {
+      response: 'waiting...',
 			numberData: [
         {
           number: {
@@ -45,6 +47,16 @@ export default {
 	},
   
   mounted() {
+
+  //######  vue-socket.io 中， 使用 socket.on 接收不到消息，只能使用 sockets.listener.subscribe
+
+//this.$socket.on('server',  function(data){
+  this.sockets.listener.subscribe('server', (data) => { 
+            console.log('received server message');
+            console.log(data);
+            this.response = data;
+          });
+
     this.changeTiming();
     this.$socket.on('server message',  function(data){
         console.log('received server message');

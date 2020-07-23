@@ -77,3 +77,9 @@ socket.on(event,function(data,fn){})
 socket.once(event,function(data,fn){})
 
 
+
+#### vuex
+
+https://www.jianshu.com/p/a804606ad8e9
+
+
