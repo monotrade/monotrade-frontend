@@ -13,6 +13,14 @@
 
 <script>
 export default {
+  sockets: {
+    connect() {
+      console.log('链接成功');
+    },
+    disconnect() {
+      console.log('断开链接')
+    },
+  },
 	data(){
 		return {
 			numberData: [
@@ -38,6 +46,10 @@ export default {
   
   mounted() {
     this.changeTiming();
+    if(!this.$socket.connected){
+      this.$socket.connect();
+    }
+    this.$socket.emit('client message', {msg:'hi, server'});
   },
   methods: {
     changeTiming() {
@@ -49,14 +61,28 @@ export default {
       this.numberData.forEach((item, index) => {
         item.number.number[0] += ++index;
         item.number = { ...item.number };
+        console.log(this.$socket.connected);
+        this.$socket.emit('client message', {msg:'hi, server',data: this.numberData});
       });
     },
     add(){
       console.log('add');
+      console.log(this.$socket.connected);
       this.$socket.emit('add', {numberData: this.numberData}); 
     },
     minus(){
       console.log('minus');
+      // socket.emit()用户客户端向服务端发送消息，服务端与之对应的是socket.on()来接收信息。
+      this.$socket.emit('client message', {msg:'hi, server'});
+
+      // socket.on()用于接收服务端发来的消息
+      this.$socket.on('connect',  ()=>{
+        console.log('client connect server');
+      });
+      this.$socket.on('disconnect', ()=>{
+        console.log('client disconnect');
+      });
+
     }
   }
 }
