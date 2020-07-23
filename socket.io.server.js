@@ -18,6 +18,7 @@ server.listen(3000);
 
 io.on('connection',  (socket)=>{
   console.log('client connect server, ok!');
+  console.log(socket.id);
 
   // io.emit()方法用于向服务端发送消息，参数1表示自定义的数据名，参数2表示需要配合事件传入的参数
   //io.emit('server message', {msg:'client connect server success'});
@@ -34,7 +35,8 @@ io.on('connection',  (socket)=>{
   	console.log('client message');
     console.log(data);// hi server
     // 应答
-  	socket.emit('server message', {msg:'response'});
+  	//socket.emit('server message', {msg:'response'});
+  	socket.send('server message', {msg:'response'});
   	io.sockets.emit('server message', {msg:'broadcast xxx'});
   });
 
