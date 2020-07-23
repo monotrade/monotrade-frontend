@@ -44,14 +44,15 @@ module.exports = {
         //     server: 'ws',//require.resolve('./WebsocketServer'),
         // }
 
+        // 通过代理收不到反向消息！！！
         //proxy to websocket.io
         //webpack dev server does not support proxying ws connections yet.
-        proxy: {
-            '/API': {
-               target: 'http://localhost:3000',
-               ws: true
-            },
-        },
+        // proxy: {
+        //     '/API': {
+        //        target: 'http://localhost:3000',
+        //        ws: true
+        //     },
+        // },
 
     //     proxy: {
     //   '^/api': {

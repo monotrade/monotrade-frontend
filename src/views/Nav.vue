@@ -66,8 +66,7 @@ const nav_data = [
       }, 
       ]
     }],
-  }, 
-  {
+  }, {
     label: '视图测试',
     children: [{
       label: 'Dashboard',
@@ -83,6 +82,9 @@ const nav_data = [
         label: '三级 2-2-1'
       }]
     }]
+  }, {
+    label: 'API测试',
+    component: require('@/views/APIdemo').default,
   }, 
 ]
 
