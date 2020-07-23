@@ -40,6 +40,14 @@ io.on('connection',  (socket)=>{
   	io.sockets.emit('server message', {msg:'broadcast xxx'});
   });
 
+  socket.on('abc', (data)=>{
+    console.log('from channel abc:'+ data);
+
+    socket.emit('server', {msg:'response'});
+    //socket.send('server', {msg:'responsexxx'});
+    return (123);
+  });
+
   //socket.disconnect();
 });
 

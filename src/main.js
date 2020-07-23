@@ -31,7 +31,7 @@ Vue.use(new VueSocketIO({
     // },
     //origins: '*:*',
     options: { 
-      path: "/API/", // "/my-app/",
+      path: "/API/", 
         
       } //Optional options
 }))

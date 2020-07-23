@@ -49,7 +49,7 @@ func main() {
     go server.Serve()
     defer server.Close()
 
-    http.Handle("/socket.io/", server)
+    http.Handle("/API/", server)
     http.Handle("/", http.FileServer(http.Dir("../dist")))
     log.Println("Serving at localhost:8080...")
     log.Fatal(http.ListenAndServe(":8080", nil))

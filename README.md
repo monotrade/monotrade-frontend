@@ -60,3 +60,20 @@ go-astilectron-demo:
 但是如何启动服务？ 参考原始文档： https://github.com/asticode/go-astilectron
 
 
+
+#### socket.io
+https://www.jianshu.com/p/6c557dcc7ec8
+
+socket.emit(),socket.on(),socket.in()
+
+在使用Socket.IO类库时，服务器端和客户端之间可以使用socket端口对象的emit方法，互相发送事件。
+
+socket.emit(event,data,[callback])
+event表示：参数值为一个用于指定事件名的字符串。data参数值：代表该事件中携带的数据。这个数据就是要发送给对方的数据。数据可以是字符串，也可以是对象。callback参数：值为一个参数，用于指定一个当对方确定接收到数据时调用的回调函数。
+一方使用emit发送事件后，另一方可以使用on,或者once方法，对该事件进行监听。once和on不同的地方就是，once只监听一次，会在回调函数执行完毕后，取消监听。
+
+
+socket.on(event,function(data,fn){})
+socket.once(event,function(data,fn){})
+
+
