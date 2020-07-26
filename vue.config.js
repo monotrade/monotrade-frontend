@@ -1,40 +1,37 @@
 //cl3没有vue.config.js，在根目录下新建一个
+const path = require("path");
 
+const WS_PATH = '/API';
+const WS_PORT = 3000;
 
-let socketIo = require('socket.io');
-let express = require('express'); 
-//let cxt = require('../src/services-server');
-
-let httpPort = 9001;
-let channelId = 1
-let app = express();
-
-app.get('/',function(req,res){
-    res.send('启动成功：' + httpPort);
-});
- 
-let server = require('http').createServer(app);
-let io = socketIo(server);
-io.on('connection',function(socket){ 
-    console.log('有客户端连接');
-//    cxt.createChannel(channelId++,socket)
-});
-server.listen(httpPort); //用server连接
-console.log('io listen success !! ' + httpPort);
-
+if(process.env.NODE_ENV === 'development'){
+    let socketio = require('./socket.io.server.js');
+    socketio.createServer(WS_PATH, WS_PORT); 
+}
 
 module.exports = {
+    // 输出文件目录     
+    //outputDir: 'dist',
+    outputDir: '../resources',
+
+    // eslint-loader 是否在保存的时候检查
+    lintOnSave: true,
 
     configureWebpack: {
-
-        // other webpack options to merge in ...
-
+        // 解决 you are using the runtime-only build of Vue
+        resolve: {
+          alias: {
+            // 别名
+            vue$: "vue/dist/vue.esm.js", //加上这一句
+            "@api": path.resolve(__dirname, "./src/api"),
+            "@utils": path.resolve(__dirname, "./src/utils")
+          }
+        }
     },
 
     // devServer Options don't belong into `configureWebpack`
-
     devServer: {
-    	//默认为 “host”，应改为“public”。 解决`Network: unavailable`的问题
+        //默认为 “host”，应改为“public”。 解决`Network: unavailable`的问题
         public: '0.0.0.0:8080',
         hot: true,
         disableHostCheck: true,
@@ -44,27 +41,24 @@ module.exports = {
         //     server: 'ws',//require.resolve('./WebsocketServer'),
         // }
 
-        // 通过代理收不到反向消息！！！
+        
         //proxy to websocket.io
         //webpack dev server does not support proxying ws connections yet.
-        // proxy: {
-        //     '/API': {
-        //        target: 'http://localhost:3000',
-        //        ws: true
-        //     },
-        // },
-
-    //     proxy: {
-    //   '^/api': {
-    //     target: '<url>',
-    //     ws: true,
-    //     changeOrigin: true
-    //   },
-    //   '^/foo': {
-    //     target: '<other_url>'
-    //   }
-    // }
-
+        proxy: {
+            '/API': {
+               target: 'http://localhost:3000',//+ WS_PORT,
+               ws: true,
+               changeOrigin: true
+            },
+            //   '^/api': {
+            //     target: '<url>',
+            //     ws: true,
+            //     changeOrigin: true
+            //   },
+            //   '^/foo': {
+            //     target: '<other_url>'
+            //   }
+        },
 
         // 引入"webpack-hot-middleware"中间件
         // var hotMiddleware = require('webpack-hot-middleware')(compiler, {
@@ -72,7 +66,18 @@ module.exports = {
         // })
         // https://github.com/webpack/webpack-dev-middleware 
         // can be configed to work with socket.io
-    }
+    },
 
+    // add by quasar plugin
+    pluginOptions: {
+      quasar: {
+        importStrategy: 'kebab',
+        rtlSupport: false
+      }
+    },
 
+    // add by quasar plugin
+    transpileDependencies: [
+      'quasar'
+    ]
 };

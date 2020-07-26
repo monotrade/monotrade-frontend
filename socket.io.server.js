@@ -1,22 +1,22 @@
 //to run
 // `node socket.io.server.js` or `node socket.io.server`
 
-console.log('hello')
 
-const server = require('http').createServer();
+//直接 `export createServer` 会报错
+exports.createServer =  function(path,port) {
+  console.log('hello socket.io');
+  const server = require('http').createServer();
+  const io = require('socket.io')(server, {
+    path: path,
+    serveClient: false,
+    // below are engine.IO options
+    pingInterval: 10000,
+    pingTimeout: 5000,
+    cookie: false
+  });
+  server.listen(port);
 
-const io = require('socket.io')(server, {
-  path: '/API',
-  serveClient: false,
-  // below are engine.IO options
-  pingInterval: 10000,
-  pingTimeout: 5000,
-  cookie: false
-});
-
-server.listen(3000);
-
-io.on('connection',  (socket)=>{
+  io.on('connection',  (socket)=>{
   console.log('client connect server, ok!');
   console.log(socket.id);
 
@@ -32,24 +32,28 @@ io.on('connection',  (socket)=>{
   
   // 与客户端对应的接收指定的消息
   socket.on('client message', (data)=>{
-  	console.log('client message');
+    console.log('client message');
     console.log(data);// hi server
     // 应答
-  	//socket.emit('server message', {msg:'response'});
-  	socket.send('server message', {msg:'response'});
-  	io.sockets.emit('server message', {msg:'broadcast xxx'});
+    socket.emit('server', {msg:'response'});
+    //socket.send('server message', {msg:'response'});
+    io.sockets.emit('server message', {msg:'broadcast xxx'});
   });
 
   socket.on('abc', (data)=>{
     console.log('from channel abc:'+ data);
 
-    socket.emit('server', {msg:'response'});
+    socket.emit('server', {msg:'response abc'});
     //socket.send('server', {msg:'responsexxx'});
     return (123);
   });
 
+  
+
   //socket.disconnect();
 });
+
+}
 
 
  // io.on('connection',function(socket) {

@@ -107,8 +107,8 @@ function createWindow() {
 
   //跨域访问？？？
   //https://newsn.net/say/electron-websecurity.html
-  let win1 = new BrowserWindow();
-  win1.loadURL("http://localhost:8000/chat");
+  // let win1 = new BrowserWindow();
+  // win1.loadURL("http://localhost:8000/chat");
 
 
   createMenu();

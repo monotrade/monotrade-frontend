@@ -1,4 +1,5 @@
 <template>
+  <q-page>
   <div id="index">
     <!-- <dv-full-screen-container class="bg"> -->
       <dv-loading v-if="loading">Loading...</dv-loading>
@@ -94,16 +95,17 @@
       </div>
     <!-- </dv-full-screen-container> -->
   </div>
+</q-page>
 </template>
 
 <script>
-import centerLeft1 from "./centerLeft1";
-import centerLeft2 from "./centerLeft2";
-import centerRight1 from "./centerRight1";
-import centerRight2 from "./centerRight2";
-import center from "./center";
-import bottomLeft from "./bottomLeft";
-import bottomRight from "./bottomRight";
+import centerLeft1 from "./dashboard/centerLeft1";
+import centerLeft2 from "./dashboard/centerLeft2";
+import centerRight1 from "./dashboard/centerRight1";
+import centerRight2 from "./dashboard/centerRight2";
+import center from "./dashboard/center";
+import bottomLeft from "./dashboard/bottomLeft";
+import bottomRight from "./dashboard/bottomRight";
 export default {
   data() {
     return {

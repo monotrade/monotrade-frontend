@@ -22,10 +22,10 @@ export default {
       console.log('断开链接')
     },
   },
-	data(){
-		return {
+  data(){
+    return {
       response: 'waiting...',
-			numberData: [
+      numberData: [
         {
           number: {
             number: [15],
@@ -43,8 +43,8 @@ export default {
           text: "总共完成数量"
         },
       ]
-		}
-	},
+    }
+  },
   
   mounted() {
 

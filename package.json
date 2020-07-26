@@ -15,65 +15,40 @@
   "main": "background.js",
   "dependencies": {
     "@jiaminghi/data-view": "^2.9.4",
+    "@quasar/extras": "^1.0.0",
+    "chai-as-promised": "^7.1.1",
     "core-js": "^3.6.5",
     "echarts": "^4.8.0",
-    "element-ui": "^2.13.2",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0",
+    "quasar": "^1.0.0",
     "vue": "^2.6.11",
-    "vue-awesome": "^4.0.2",
+    "vue-awesome": "^4.1.0",
     "vue-grid-layout": "^2.3.7",
     "vue-router": "^3.2.0",
     "vue-socket.io": "^3.0.9",
-    "vuex": "^3.5.1"
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-unit-mocha": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-transform-imports": "1.5.0",
     "chai": "^4.1.2",
     "electron": "^9.0.0",
     "electron-devtools-installer": "^3.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.0",
+    "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "socket.io-server": "^1.0.0-b",
-    "vue-cli-plugin-electron-builder": "^2.0.0-rc.4",
+    "socket.io": "^2.3.0",
+    "spectron": "^11.0.0",
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.4",
+    "vue-cli-plugin-quasar": "~2.0.2",
     "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {},
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "mocha": true
-        }
-      }
-    ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }

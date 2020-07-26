@@ -1,10 +1,16 @@
 import Vue from 'vue';
-import App from './App.vue';
-//import App from './App'	//可以不写 .vue
-import Main from './views/Main.vue'
 
-import router from './router';
-import store from './store';
+//路由
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+import router from '@/router';
+
+//vuex
+import store from '@/store';
+
+import { currency } from '@/currency'
+Vue.filter('currency', currency)
+
 
 // 将自动注册所有组件为全局组件
 import dataV from '@jiaminghi/data-view';
@@ -22,7 +28,7 @@ import VueSocketIO from 'vue-socket.io'
 
 Vue.use(new VueSocketIO({
     debug: true,
-    connection: 'http://localhost:3000',
+    connection: 'http://localhost:8080',
 
     // vuex: {
     //     store,
@@ -31,7 +37,7 @@ Vue.use(new VueSocketIO({
     // },
     //origins: '*:*',
     options: { 
-      path: "/API/", 
+      path: "/API/", // "/my-app/",
         
       } //Optional options
 }))
@@ -58,58 +64,47 @@ Vue.component('icon', Icon);
 // 适配flex
 import '@/common/flexible.js';
 
-// 引入全局css
-import './assets/scss/style.scss';
-
-
-
-
-
-
-import ElementUI from 'element-ui' //element-ui的全部组件
-import 'element-ui/lib/theme-chalk/index.css'//element-ui的css
-Vue.use(ElementUI) //使用elementUI
-
+// for dashboard
+import '@/assets/scss/style.scss';
 
 //if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
-
-if(process.env.NODE_ENV === 'development'){
-  console.log("开发环境，模拟ws server");
-  // var app = require('express')();
-  // var http = require('http').Server(app);
-  // var io = require('socket.io')(http);
-
-  // app.get('/', function(req, res){
-  //   res.send('<h1>你好web秀</h1>');
-  // });
-   
-  // io.on('connection',function(socket) {
-  //   //接收数据
-  //   socket.on('login', function (obj) {                
-  //       console.log(obj.username);
-  //       // 发送数据
-  //       socket.emit('relogin', {
-  //         msg: `你好${obj.username}`,
-  //         code: 200
-  //       });  
-  //   });
-  // });
-   
-  // http.listen(3000, function(){
-  //   console.log('listening on *:3000');
-  // });
-}
 
  
 
 
 Vue.config.productionTip = false;
+//购物车应用
+//import App from './components/App.vue'
+//空路由
+//import App from './App.vue';
+//导航 ElementUI
+import App from '@/App.vue'
+import '@/quasar'
 
-new Vue({
-  // 全局注册组件
-  components: { App,Main },
+//import App from './App'	//可以不写 .vue
+// new Vue({
+//   // 全局注册组件
+//   components: { App,Main },
+//   router,
+//   store,
+//   render: (h) => h(Main),
+//   //template: '<Main/>'
+// }).$mount('#app');
+
+// new Vue({
+//   //使用路由，不再需要 render
+//   router,
+//   // el: '#app',
+//   store,
+//   // render: h => h(App)
+// }).$mount('#app')
+
+
+const app = new Vue({
+//   //注入路由，从而让整个应用都有路由功能
+//   //可以在任何组件内通过 this.$router 访问路由器，也可以通过 this.$route 访问当前路由
   router,
+  el: '#app',
   store,
-  render: (h) => h(Main),
-  //template: '<Main/>'
-}).$mount('#app');
+  render: h => h(App)
+});

@@ -1,10 +1,13 @@
 .DS_Store
 node_modules
 /dist
+/dist_electron
 
 # local env files
 .env.local
 .env.*.local
+
+package-lock.json
 
 # Log files
 npm-debug.log*
@@ -12,6 +15,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+
+yarn.lock
 # Editor directories and files
 .idea
 .vscode
@@ -22,6 +27,4 @@ pnpm-debug.log*
 *.sw?
 
 #Electron-builder output
-/dist_electronbuild
-dist_electron
-yarn.lock
+dist_electron/
