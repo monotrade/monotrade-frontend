@@ -83,3 +83,19 @@ socket.once(event,function(data,fn){})
 https://www.jianshu.com/p/a804606ad8e9
 
 
+
+####  vue-grid-layout
+
+https://github.com/jbaysolutions/vue-grid-layout/blob/master/README-zh_CN.md
+
+https://jbaysolutions.github.io/vue-grid-layout/examples/05-mirrored.html
+
+拖拽 ‘vue-grid-layout’ 插件了解下
+https://www.cnblogs.com/fengxin666/p/10059058.html
+
+#### 浅谈使用element ui + vuedraggable + sortablejs实现多种版式布局及托拽（2）
+https://blog.csdn.net/github_37847992/article/details/77900603
+
+
+
+
