@@ -97,5 +97,15 @@ https://www.cnblogs.com/fengxin666/p/10059058.html
 https://blog.csdn.net/github_37847992/article/details/77900603
 
 
+#### 使用Vue和thrift建立前后端交互的demo
+https://www.cnblogs.com/dreamless/p/8494551.html
+
+利用thrift实现js与C#通讯的例子
+https://www.cnblogs.com/xxxteam/archive/2013/04/15/3023159.html
+
+golang高性能RPC：Apache Thrift安装使用完全攻略
+https://www.cnblogs.com/apocelipes/p/9420825.html
 
 
+#### Electron 项目（三）：本地日志（electron-log）
+https://blog.csdn.net/qq_32596527/article/details/106415532
