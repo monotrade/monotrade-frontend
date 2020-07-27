@@ -26,6 +26,17 @@ import VueSocketIO from 'vue-socket.io'
 //import SocketIO from "socket.io-client"
 //import io from "socket.io-server"
 
+
+
+// step1: 引入 ViewUI
+import ViewUI from 'view-design'
+// step2: 引入 css 
+import 'view-design/dist/styles/iview.css'
+// step3:声明使用 ViewUI
+Vue.use(ViewUI)
+
+
+
 Vue.use(new VueSocketIO({
     debug: true,
     connection: 'http://localhost:8080',
@@ -100,7 +111,7 @@ import '@/quasar'
 // }).$mount('#app')
 
 
-const app = new Vue({
+new Vue({
 //   //注入路由，从而让整个应用都有路由功能
 //   //可以在任何组件内通过 this.$router 访问路由器，也可以通过 this.$route 访问当前路由
   router,

@@ -22,6 +22,12 @@ const routes = [{
       }, {
         path: '/shopping-cart',
         component: () => import('@/pages/shopping-cart.vue'),
+      }, {
+        path: '/split-demo',
+        component: () => import('@/pages/split-demo.vue'),
+      }, {
+        path: '/split-viewui',
+        component: () => import('@/pages/split-viewui.vue'),
       }
     ]
   },  {

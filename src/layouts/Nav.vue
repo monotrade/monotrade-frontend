@@ -26,6 +26,12 @@ const nav_data = [
      label: '购物车',
      url: '/shopping-cart',
   }, {
+     label: '布局',
+     url: '/split-demo',
+  }, {
+     label: '布局2',
+     url: '/split-viewui',
+  }, {
     label: '组件测试',
     url: '#',
     children: [{

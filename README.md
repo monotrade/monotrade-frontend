@@ -156,5 +156,9 @@ vue-draggable 学习和使用
 https://www.jianshu.com/p/03f0f58f84cc
 
 
-vue-draggable-resizable 可拖拽缩放的组件
-https://www.jianshu.com/p/f4108fb3ebf9
+
+_vue-split-layout:  vue split drag layout_
+
+https://github.com/vue-hxs/vue-split-layout
+
+demo: https://vue-hxs.github.io/vue-split-layout/
