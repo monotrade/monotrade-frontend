@@ -93,8 +93,9 @@ https://jbaysolutions.github.io/vue-grid-layout/examples/05-mirrored.html
 拖拽 ‘vue-grid-layout’ 插件了解下
 https://www.cnblogs.com/fengxin666/p/10059058.html
 
-#### 浅谈使用element ui + vuedraggable + sortablejs实现多种版式布局及托拽（2）
-https://blog.csdn.net/github_37847992/article/details/77900603
+#### 浅谈使用element ui + vuedraggable + sortablejs实现多种版式布局及托拽
+1. https://blog.csdn.net/github_37847992/article/details/77900441
+2. https://blog.csdn.net/github_37847992/article/details/77900603
 
 
 #### 使用Vue和thrift建立前后端交互的demo
@@ -109,3 +110,24 @@ https://www.cnblogs.com/apocelipes/p/9420825.html
 
 #### Electron 项目（三）：本地日志（electron-log）
 https://blog.csdn.net/qq_32596527/article/details/106415532
+
+
+布局：
+
+每个窗口分为 上下左右主五个部分
+每个放置窗口的部分，继续划分上下左右主五个部分
+无限增加
+
+打开新组件时，放到一个新窗口的主部分
+
+拖放时，显示: 当前hover窗口所在容器的梅花， 和顶级窗口上下左右
+
+当与原有窗口位置完全相同时，用页签并列(所有组件都有页签，不允许关闭的除外)
+
+所有分割线可以调节位置
+
+如此，能实现任意组合
+
+
+
+
