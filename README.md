@@ -25,6 +25,11 @@ This project was generated with [electron-vue](https://github.com/SimulatedGREG/
 
 #### ref
 
+https://cn.vuejs.org/v2/guide/
+
+
+
+
 - [2019 年如何搭建你的 Vue 项目](https://zhuanlan.zhihu.com/p/70752505)
 
   + @vue/cli
@@ -129,5 +134,27 @@ https://blog.csdn.net/qq_32596527/article/details/106415532
 如此，能实现任意组合
 
 
+https://github.com/ivanjolic95/vue-layout-composer
+
+https://vuejsexamples.com/a-draggable-and-resizable-grid-layout-for-vue-js/
+
+7 Best Drag And Drop Components To Create Draggable Elements
+https://www.vuescript.com/best-drag-drop/
 
 
+使用vue如何实现grid-layout功能
+https://www.php.cn/js-tutorial-403424.html
+
+
+Vue Drag and Drop
+https://www.jianshu.com/p/4d997bd855d3
+
+vuedraggable快速入门
+http://www.qiutianaimeili.com/html/page/2019/09/uudmg0p3mbc.html
+
+vue-draggable 学习和使用
+https://www.jianshu.com/p/03f0f58f84cc
+
+
+vue-draggable-resizable 可拖拽缩放的组件
+https://www.jianshu.com/p/f4108fb3ebf9
