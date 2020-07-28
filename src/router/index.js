@@ -30,7 +30,11 @@ const routes = [{
         component: () => import('@/pages/split-viewui.vue'),
       }
     ]
-  },  {
+  }, {
+    path: '/dragable',
+    name: 'dragable',
+    component: () => import('@/layouts/dragable.vue'),
+  }, {
     // layout demo
     path: '/user',
     name: 'default',

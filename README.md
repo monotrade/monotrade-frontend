@@ -1,5 +1,8 @@
 # monotrade-frontend
 
+10 分钟上手 Vue 组件 Vue-Draggable
+https://zhuanlan.zhihu.com/p/84433257
+
 
 
 > An electron-vue project
