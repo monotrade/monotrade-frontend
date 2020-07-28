@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <q-splitter v-model="layout.top" horizontal>
+    <template v-slot:before>
+      <slot name="top">Top</slot>
+    </template>
     <q-splitter
       v-model="splitterModel"
-      style="height: 250px"
+      style="height: 100vh"
     >
-
-      <template v-slot:before>
+      <template v-slot:before style="height: 100vh">
         <q-tabs
           v-model="tab"
           vertical
@@ -23,6 +25,7 @@
           animated
           transition-prev="jump-up"
           transition-next="jump-up"
+          style="height: 100vh"
         >
           <q-tab-panel name="mails">
             <div class="text-h4 q-mb-md">Mails</div>
@@ -46,7 +49,7 @@
       </template>
 
     </q-splitter>
-  </div>
+    </q-splitter>
 </template>
 
 <script>
@@ -54,7 +57,15 @@ export default {
   data () {
     return {
       tab: 'mails',
-      splitterModel: 20
+      splitterModel: 20,
+      layout: {
+        top: 20,
+        middle: {
+          left: 20,
+          middle: 40
+        },
+        bottom: 20,
+      }
     }
   }
 }
