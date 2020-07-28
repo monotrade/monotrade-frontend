@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 
 //一次性加载。 下面 routes 中为延迟加载
-import MainLayout from '@/layouts/main-layout.vue'
+import MainLayout from '@/layouts/main-layout1.vue'
 
 // import Profile from 'pages/Profile'
 // import Posts from 'pages/Posts'
