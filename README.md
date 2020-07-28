@@ -3,6 +3,8 @@
 10 分钟上手 Vue 组件 Vue-Draggable
 https://zhuanlan.zhihu.com/p/84433257
 
+每个位置是一个 tab list
+https://sortablejs.github.io/Vue.Draggable/#/two-lists
 
 
 > An electron-vue project
