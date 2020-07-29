@@ -35,6 +35,10 @@ const routes = [{
     name: 'dragable',
     component: () => import('@/layouts/dragable.vue'),
   }, {
+    path: '/layoutlet',
+    name: 'layoutlet',
+    component: () => import('@/layouts/layoutlet.vue'),
+  }, {
     // layout demo
     path: '/user',
     name: 'default',

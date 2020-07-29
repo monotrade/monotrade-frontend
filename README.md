@@ -7,6 +7,15 @@ https://zhuanlan.zhihu.com/p/84433257
 https://sortablejs.github.io/Vue.Draggable/#/two-lists
 
 
+
+http://v0-16.quasarchs.com/components/typography.html
+http://v0-16.quasarchs.com/quasar-play/android/index.html#/showcase/layout-demo/play-with-layout
+
+
+https://quasarframework.github.io/app-extension-qwindow/examples
+https://github.com/quasarframework/app-extension-qwindow
+
+
 > An electron-vue project
 
 #### Build Setup
