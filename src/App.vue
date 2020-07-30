@@ -6,7 +6,7 @@
 <style lang="scss">
 body {
   margin: 0;
-  background-color: red;
+  background-color: grey;
 }
 
 </style>

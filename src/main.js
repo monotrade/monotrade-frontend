@@ -29,11 +29,11 @@ import VueSocketIO from 'vue-socket.io'
 
 
 // step1: 引入 ViewUI
-import ViewUI from 'view-design'
+//import ViewUI from 'view-design'
 // step2: 引入 css 
-import 'view-design/dist/styles/iview.css'
+//import 'view-design/dist/styles/iview.css'
 // step3:声明使用 ViewUI
-Vue.use(ViewUI)
+//Vue.use(ViewUI)
 
 
 

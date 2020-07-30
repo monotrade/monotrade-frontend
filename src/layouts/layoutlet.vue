@@ -1,61 +1,63 @@
 <template>
   <q-layout style="background: green">
         <!-- <q-page padding> -->
-          <slot>in page</slot>
-          <!-- place QPageSticky at end of page -->          
-          <q-page-sticky position="top" :offset="[0, 18]">
-            <q-btn round color="accent" icon="arrow_back" class="rotate-90" />
-          </q-page-sticky>
-          <q-page-sticky position="right" :offset="[18, 0]">
-            <q-btn round color="accent" icon="arrow_upward" class="rotate-90" />
-          </q-page-sticky>
-          <q-page-sticky position="left" :offset="[18, 0]">
-            <q-btn round color="accent" icon="arrow_back" />
-          </q-page-sticky>
-          <q-page-sticky position="bottom" :offset="[0, 18]">
-            <q-btn round color="accent" icon="arrow_forward" class="rotate-90" />
-          </q-page-sticky>
-          
-
-
-
-          <div class="column flex-center" style="width: 500px; max-width: 90vw;">
-      <div class="row group">        
-        <div>
-          <q-btn round color="secondary" @click="showNotification('top')">
-            <q-icon name="arrow_upward" />
-          </q-btn>
-        </div>
-      </div>
-      <div class="row group">
-        <div>
-          <q-btn round color="secondary" @click="showNotification('left')">
-            <q-icon name="arrow_back" />
-          </q-btn>
-        </div>
-        <div>
-          <q-btn round color="secondary" @click="showNotification('center')">
-            <q-icon name="fullscreen_exit" />
-          </q-btn>
-        </div>
-        <div>
-          <q-btn round color="secondary" @click="showNotification('right')">
-            <q-icon name="arrow_forward" />
-          </q-btn>
-        </div>
-      </div>
-      <div class="row group">
+        <slot>in page</slot>
+        <!-- place QPageSticky at end of page -->          
+        <q-page-sticky position="top" :offset="[0, 18]">
+          <q-btn round color="accent" icon="arrow_back" class="rotate-90" />
+        </q-page-sticky>
+        <q-page-sticky position="right" :offset="[18, 0]">
+          <q-btn round color="accent" icon="arrow_upward" class="rotate-90" />
+        </q-page-sticky>
+        <q-page-sticky position="left" :offset="[18, 0]">
+          <q-btn round color="accent" icon="arrow_back" />
+        </q-page-sticky>
+        <q-page-sticky position="bottom" :offset="[0, 18]">
+          <q-btn round color="accent" icon="arrow_forward" class="rotate-90" />
+        </q-page-sticky>
         
-        <div>
-          <q-btn round color="secondary" @click="showNotification('bottom')">
-            <q-icon name="arrow_downward" />
-          </q-btn>
-        </div>
+
+
+
+        <div class="column flex-center" style="width: 130px; max-width: 90vw; position:absolute;left:50%; top:50%; background-color: red; margin-left:-65px; margin-top: -65px">
+          <q-btn round color="secondary" @click="showNotification('top')" style="position:absolute;left:50%; top:0px; margin-left:-20px">
+          <q-icon name="arrow_upward" />
+        </q-btn>
+        <q-btn round color="secondary" @click="showNotification('left')">
+          <q-icon name="arrow_back" />
+        </q-btn>
+    <div class="row group">        
+      <div>
         
       </div>
     </div>
-        <!-- </q-page> -->
-      </q-layout>
+    <div class="row group">
+      <div>
+        
+      </div>
+      <div>
+        <q-btn round color="secondary" @click="showNotification('center')">
+          <q-icon name="fullscreen_exit" />
+        </q-btn>
+      </div>
+      <div>
+        <q-btn round color="secondary" @click="showNotification('right')">
+          <q-icon name="arrow_forward" />
+        </q-btn>
+      </div>
+    </div>
+    <div class="row group">
+      
+      <div>
+        <q-btn round color="secondary" @click="showNotification('bottom')">
+          <q-icon name="arrow_downward" />
+        </q-btn>
+      </div>
+      
+    </div>
+  </div>
+      <!-- </q-page> -->
+    </q-layout>
 </template>
 
 <script>
