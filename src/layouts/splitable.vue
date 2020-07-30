@@ -1,4 +1,4 @@
-<template>    
+<template>
 	<q-splitter v-model="rate" :horizontal="isHorizontal" style="background-color: grey; height: 100vh;">
 		<template v-slot:before style="height: 100vh">
   			<slot name="top">Top</slot>

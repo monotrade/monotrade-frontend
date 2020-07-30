@@ -1,5 +1,6 @@
 <template>
   <div class="row" style="background-color: white; height: 100vh">
+    <splitable style="width: 500px"></splitable>
     <div class="col-6">   
       
       <q-tabs
@@ -10,9 +11,9 @@
           align="justify"
           narrow-indicator
         >
-<draggable :list="list1" group="people" @change="log" class="row">
-          <q-tab v-for="(element, index) in list1" :name="element.name" :label="element.name" />          
-</draggable>
+
+          <q-tab draggable="true" v-for="(element, index) in list1" :name="element.name" :label="element.name" />
+
         </q-tabs>
 
         <q-separator />   

@@ -1,3 +1,31 @@
+#### html5 原生拖拽
+https://blog.csdn.net/baidu_31333625/article/details/53811510
+draggable="true"
+
+
+事件	产生事件的元素	描述
+dragstart	被拖放的元素	开始拖放操作
+drag	被拖放的元素	拖放过程中
+dragenter	拖放过程中鼠标经过的元素	被拖放元素开始进入本元素的范围内
+dragover	拖放过程中鼠标经过的元素	被拖放元素正在本元素范围内移动
+dragleave	拖放过程中鼠标经过的元素	被拖放元素离开本元素的范围
+drop	拖放的目标元素	有其他元素被拖放到本元素中
+dragend	拖放的对象元素	拖放操作结束
+
+
+
+三. DataTransfer对象的属性与方法
+3.1 DataTransfer对象的属性：
+属性	描述
+dropEffect	表示拖放操作的视觉效果，允许对其进行值的设定。该效果必须在用effectAllowed属性指定的允许的视觉效果范围内，允许指定的值有：none、copy、link、move。
+effectAllowed	用来指定当元素被拖放时所允许的视觉效果。可以指定的值有：none、copy、copyLink、copyMove、link、linkMove、all、uninitialize。
+files	返回表示被拖拽文件的 FileList。
+types	存入数据的MIME类型。如果任意文件被拖拽，那么其中一个类型将会是字符串”Files”。
+
+
+
+
+
 # monotrade-frontend
 
 10 分钟上手 Vue 组件 Vue-Draggable
