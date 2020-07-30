@@ -1,5 +1,5 @@
 <template>    
-	<q-splitter v-model="rate" horizontal style="background-color: grey; height: 100vh;">
+	<q-splitter v-model="rate" :horizontal="isHorizontal" style="background-color: grey; height: 100vh;">
 		<template v-slot:before style="height: 100vh">
   			<slot name="top">Top</slot>
   			<q-btn round color="secondary" @click="showNotification('top')" style="position:absolute;left:50%; top:0px; margin-left:-20px">
@@ -29,8 +29,8 @@ import splitable from "@/layouts/splitable.vue"
 export default {
     data() {
         return {
-        	rate: 30,
-            isHorizontal: false,
+        	rate: 50,
+            isHorizontal: true,
             list: [
                 { name: "John", id: 1 },
                 { name: "Joao", id: 2 },
