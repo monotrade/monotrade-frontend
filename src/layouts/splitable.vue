@@ -2,32 +2,41 @@
   <div draggable="true"
     v-on:dragenter="onDragEnter"
     v-on:dragleave="onDragLeave" >
-
-    <div name="dragHandlerPane"
-      v-show="showDropHandler"
-      style="position:relative;top:50%;left:50%;
-      width:150px;height:150px; margin-left: -75px; margin-top: -75px;
-      background-color: green">
-      <q-btn round color="secondary"
-        style="margin-top:-80px">
-        <q-icon name="arrow_upward"/>
-      </q-btn>
-      <q-btn round color="secondary"
-        style="margin-left:-80px">
-        <q-icon name="arrow_back" />
-      </q-btn>
-      <q-btn round color="secondary"
-        style="margin-right:-80px">
-        <q-icon name="arrow_front" />
-      </q-btn>
-      <q-btn round color="secondary"
-         style="margin-top:80px">
-        <q-icon name="arrow_downward" />
-      </q-btn>
+    <div class="dragHandlerPane" v-show="showDropHandler">
+      <div style="
+        width: 150px;height: 150px; margin-left: -75px;margin-top: -75px;
+        background-color: green;">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <q-btn round color="secondary">
+          <q-icon name="arrow_upward"/>
+        </q-btn>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+        <div class="col-4">
+          <q-btn round color="secondary"><q-icon name="arrow_back"/></q-btn>
+        </div>
+        <div class="col-4">
+          <q-btn round color="secondary"><q-icon name="arrow_back"/></q-btn>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <q-btn round color="secondary">
+          <q-icon name="arrow_downward" />
+        </q-btn>
+        </div>
+        <div class="col-4"></div>
+      </div>
     </div>
-    <div name="content">abc</div>
-	<!-- <q-splitter v-model="rate" :horizontal="isHorizontal" style="
-    position:relative;top:0%;left:0%;
+    </div>
+
+	<q-splitter v-model="rate" :horizontal="isHorizontal" style="     
     background-color: grey; height: 100vh;">
     <template v-slot:before style="height: 100vh">
         <slot name="top">Top</slot>
@@ -37,7 +46,7 @@
         <slot name="top">Bottom</slot>
         
     </template>
-  </q-splitter> -->
+  </q-splitter>
  </div>   
 </template>
 
@@ -71,3 +80,14 @@ export default {
     }
 }
 </script>
+
+<style>
+  .dragHandlerPane {
+    float:left;
+    position:relative;
+    top:50%;
+    left:50%;
+    width: 0px;
+    background-color: green;
+  }
+</style>
