@@ -20,21 +20,17 @@ const routes = [{
         path: '/', //延迟加载
         component: () => import('@/pages/Dashboard.vue'),
       }
-    ]
+      ]
   }, {
-        path: '/shopping-cart',
-        component: () => import('@/pages/shopping-cart.vue'),
-      }, {
-        path: '/split-demo',
-        component: () => import('@/pages/split-demo.vue'),
-      }, {
+    path: '/shopping-cart',
+    component: () => import('@/pages/shopping-cart.vue'),
+  }, {
+    path: '/split-demo',
+    component: () => import('@/pages/split-demo.vue'),
+  }, {
     path: '/window',
     name: 'window',
     component: () => import('@/layouts/window.vue'),
-  }, , {
-    path: '/dragable',
-    name: 'dragable',
-    component: () => import('@/layouts/dragable.vue'),
   }, {
     path: '/layoutlet',
     name: 'layoutlet',

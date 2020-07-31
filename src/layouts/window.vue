@@ -30,20 +30,10 @@
       </q-tab-panels>
       
     </div>
-<div class="col-6">
-    <splitable style="height: 100vh;background-color:yellow;"></splitable>
-	</div>
-    <div class="col-3">      
-      <draggable class="list-group" :list="list2" group="people" @change="log">
-        <div
-          class="list-group-item"
-          v-for="(element, index) in list2"
-          :key="element.name"
-        >
-          {{ element.name }} {{ index }}
-        </div>
-      </draggable>
-    </div>
+    <div class="col-6">
+      <splitable style="height: 100vh;background-color:yellow;"></splitable>
+  	</div>
+    
 
     <!-- <rawDisplayer class="col-3" :value="list1" title="List 1" />
 
@@ -51,14 +41,14 @@
   </div>
 </template>
 <script>
-import draggable from "vuedraggable";
+// import draggable from "vuedraggable";
 import splitable from "@/layouts/splitable.vue"
 export default {
   // name: "two-lists",
   display: "Two Lists",
   order: 1,
   components: {
-    draggable,
+    // draggable,
     splitable
   },
   data() {

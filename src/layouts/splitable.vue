@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import draggable from "vuedraggable";
+// import draggable from "vuedraggable";
 import splitable from "@/layouts/splitable.vue"
 
 export default {

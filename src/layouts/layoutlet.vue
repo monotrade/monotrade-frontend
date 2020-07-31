@@ -61,14 +61,19 @@
 </template>
 
 <script>
-import Draggable from "vuedraggable"
+// import Draggable from "vuedraggable"
 
 export default {
-  components: { Draggable,},
+  components: { 
+    // Draggable,
+  },
   data () {
     return {
       drawerLeft: false,
-      drawerRight: false
+      drawerRight: false,
+
+      // 暴露属性
+
     }
   },
     mounted() {
