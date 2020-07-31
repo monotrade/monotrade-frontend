@@ -1,14 +1,21 @@
 <template>
   <div draggable="true"
     v-on:dragenter="onDragEnter"
-    v-on:dragend="onDragLeave"
+    v-on:dragleave="onDragLeave"
     style="position:relative;" >
-     <div style="position:absolute; top: 10px; left: 10px;background-color: green; width:100%; height: 100%; z-index: 1;">
+     <div style="position:absolute;background-color: green; width:100%; height: 100%; z-index: 1;">
       a      
     </div>
 
+    <div name="split-top" v-show="showSplitTop" style="
+      position: absolute; width: 100%;height: 50%;background-color: blue;
+    z-index: 10;
+    filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.5;
+    "></div>
 
-    <div v-show="showDropHandler" style="position:absolute; top: 10px; left: 10px; width: 100%;height: 100%; z-index: 99;  
+
+    <div v-show="showDropHandler" style="position:absolute; width: 100%;height: 100%; z-index: 99;
+      background-image: url((require('./../assets/bg.png');
     ">
       <div style="width: 150px;height: 150px; 
       position: absolute;margin-left: 50%;margin-top: 50%;
@@ -98,7 +105,8 @@ import splitable from "@/layouts/splitable.vue"
 export default {
     data() {
         return {
-          showDropHandler: false,
+          showDropHandler: true,
+          showSplitTop: true,
         	rate: 50,
             isHorizontal: true,            
         };
