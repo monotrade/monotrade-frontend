@@ -1,6 +1,8 @@
 <template>
   <div class="row" style="background-color: white; height: 100vh">
-    <splitable style="width: 500px"></splitable>
+  	<div class="col-6">
+    <splitable style="background-color: red;height: 100vh"></splitable>
+</div>
     <div class="col-6">   
       
       <q-tabs

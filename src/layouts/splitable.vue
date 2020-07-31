@@ -1,25 +1,44 @@
 <template>
-	<q-splitter v-model="rate" :horizontal="isHorizontal" style="background-color: grey; height: 100vh;">
-		<template v-slot:before style="height: 100vh">
-  			<slot name="top">Top</slot>
-  			<q-btn round color="secondary" @click="showNotification('top')" style="position:absolute;left:50%; top:0px; margin-left:-20px">
-          <q-icon name="arrow_upward" />
-        </q-btn>
-        <q-btn round color="secondary" @click="showNotification('left')">
-          <q-icon name="arrow_back" />
-          </q-btn>
-		</template>
-		<template v-slot:after style="height: 100vh">
-  			<slot name="top">Bottom</slot>
-  			<q-btn round color="secondary" @click="showNotification('top')" style="position:absolute;left:50%; top:0px; margin-left:-20px">
-          <q-icon name="arrow_upward" />
-        </q-btn>
-        <q-btn round color="secondary" @click="showNotification('left')">
-          <q-icon name="arrow_back" />
-          </q-btn>
-		</template>
-	</q-splitter>
-    
+  <div draggable="true"
+    v-on:dragenter="onDragEnter"
+    v-on:dragleave="onDragLeave" >
+
+    <div name="dragHandlerPane"
+      v-show="showDropHandler"
+      style="position:relative;top:50%;left:50%;
+      width:150px;height:150px; margin-left: -75px; margin-top: -75px;
+      background-color: green">
+      <q-btn round color="secondary"
+        style="margin-top:-80px">
+        <q-icon name="arrow_upward"/>
+      </q-btn>
+      <q-btn round color="secondary"
+        style="margin-left:-80px">
+        <q-icon name="arrow_back" />
+      </q-btn>
+      <q-btn round color="secondary"
+        style="margin-right:-80px">
+        <q-icon name="arrow_front" />
+      </q-btn>
+      <q-btn round color="secondary"
+         style="margin-top:80px">
+        <q-icon name="arrow_downward" />
+      </q-btn>
+    </div>
+    <div name="content">abc</div>
+	<!-- <q-splitter v-model="rate" :horizontal="isHorizontal" style="
+    position:relative;top:0%;left:0%;
+    background-color: grey; height: 100vh;">
+    <template v-slot:before style="height: 100vh">
+        <slot name="top">Top</slot>
+        
+    </template>
+    <template v-slot:after style="height: 100vh">
+        <slot name="top">Bottom</slot>
+        
+    </template>
+  </q-splitter> -->
+ </div>   
 </template>
 
 <script>
@@ -29,6 +48,7 @@ import splitable from "@/layouts/splitable.vue"
 export default {
     data() {
         return {
+          showDropHandler: true,
         	rate: 50,
             isHorizontal: true,
             list: [
@@ -39,5 +59,15 @@ export default {
             ]         
         };
     },
+    methods: {
+      onDragEnter: function() {
+        this.showDropHandler = true;        
+        console.log("enter");
+      },
+      onDragLeave: function(){
+        this.showDropHandler = false;
+        console.log("leave");
+      }
+    }
 }
 </script>
