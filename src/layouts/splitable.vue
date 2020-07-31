@@ -3,8 +3,15 @@
     v-on:dragenter="onDragEnter"
     v-on:dragleave="onDragLeave"
     style="position:relative;" >
-     <div style="position:absolute;background-color: green; width:100%; height: 100%; z-index: 1;">
-      a      
+     <div style="position:absolute;background-color: green; width:100%; height: 100vh; z-index: 1;">
+      <q-splitter v-model="split" style="height: 100%;" :horizontal="true">
+      <template v-slot:before>
+        <panels v-bind:panels="before" v-bind:select_index="before_select_index"/>
+    </template>
+      <template v-slot:after name="after"> 
+        <panels v-bind:panels="after" v-bind:select_index="after_select_index"/>
+      </template>
+    </q-splitter>
     </div>
 
     <div name="split-top" v-show="showSplitTop" style="
@@ -51,62 +58,35 @@
       </div>
     </div>
   </div>
-
-   
-
-
-    
-    
-
-
-    <!-- <div class="dragHandlerPane" v-show="showDropHandler">
-      <div position: absolute;
-        width: 150px;height: 150px; margin-left: 50%;margin-top: 50%;">
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-        <q-btn round color="secondary">
-          <q-icon name="arrow_drop_up"/>
-        </q-btn>
-        </div>
-        <div class="col-4"></div>
-      </div>
-      <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
-        <div class="col-4">
-          <q-btn round color="secondary" v-on:dragenter="onDragEnter">
-            <q-icon name="arrow_left"/>
-          </q-btn>
-        </div>
-        <div class="col-4">
-          <q-btn round color="secondary"><q-icon name="aspect_ratio"/></q-btn>
-        </div>
-        <div class="col-4">
-          <q-btn round color="secondary"><q-icon name="arrow_right"/></q-btn>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-        <q-btn round color="secondary"><q-icon name="arrow_drop_down"/></q-btn>
-        </div>
-        <div class="col-4"></div>
-      </div>
-    </div>
-  </div>
- -->
-	
- </div>   
+</div>   
 </template>
 
 <script>
 // import draggable from "vuedraggable";
-import splitable from "@/layouts/splitable.vue"
+import panels from "@/layouts/panels.vue"
 
 export default {
+    components: { panels,},
+    
     data() {
         return {
-          showDropHandler: true,
-          showSplitTop: true,
+          split: 50,
+          before_select_index : 0,
+          before: [
+              {name:'mails1'},
+              {name:'alarms2'},
+              {name:'movies3'},
+            ],
+
+          after_select_index : 0,
+          after: [
+              {name:'aaa'},
+              {name:'bbb'},
+              {name:'ccc'},
+            ],
+
+          showDropHandler: false,
+          showSplitTop: false,
         	rate: 50,
             isHorizontal: true,            
         };
