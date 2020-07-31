@@ -1,52 +1,93 @@
 <template>
   <div draggable="true"
     v-on:dragenter="onDragEnter"
-    v-on:dragleave="onDragLeave" >
-    <div class="dragHandlerPane" v-show="showDropHandler">
-      <div style="
-        width: 150px;height: 150px; margin-left: -75px;margin-top: -75px;
-        background-color: green;">
-      <div class="row">
+    v-on:dragend="onDragLeave"
+    style="position:relative;" >
+     <div style="position:absolute; top: 10px; left: 10px;background-color: green; width:100%; height: 100%; z-index: 1;">
+      a      
+    </div>
+
+
+    <div v-show="showDropHandler" style="position:absolute; top: 10px; left: 10px; width: 100%;height: 100%; z-index: 99;  
+    ">
+      <div style="width: 150px;height: 150px; 
+      position: absolute;margin-left: 50%;margin-top: 50%;
+      ">
+     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
         <q-btn round color="secondary">
-          <q-icon name="arrow_upward"/>
+          <q-icon name="arrow_drop_up"/>
         </q-btn>
         </div>
         <div class="col-4"></div>
       </div>
       <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
         <div class="col-4">
-          <q-btn round color="secondary"><q-icon name="arrow_back"/></q-btn>
+          <q-btn round color="secondary" v-on:dragenter="onDragEnter">
+            <q-icon name="arrow_left"/>
+          </q-btn>
         </div>
         <div class="col-4">
-          <q-btn round color="secondary"><q-icon name="arrow_back"/></q-btn>
+          <q-btn round color="secondary"><q-icon name="aspect_ratio"/></q-btn>
         </div>
-        <div class="col-4"></div>
+        <div class="col-4">
+          <q-btn round color="secondary"><q-icon name="arrow_right"/></q-btn>
+        </div>
       </div>
       <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-        <q-btn round color="secondary">
-          <q-icon name="arrow_downward" />
-        </q-btn>
+        <q-btn round color="secondary"><q-icon name="arrow_drop_down"/></q-btn>
         </div>
         <div class="col-4"></div>
       </div>
     </div>
-    </div>
+  </div>
 
-	<q-splitter v-model="rate" :horizontal="isHorizontal" style="     
-    background-color: grey; height: 100vh;">
-    <template v-slot:before style="height: 100vh">
-        <slot name="top">Top</slot>
-        
-    </template>
-    <template v-slot:after style="height: 100vh">
-        <slot name="top">Bottom</slot>
-        
-    </template>
-  </q-splitter>
+   
+
+
+    
+    
+
+
+    <!-- <div class="dragHandlerPane" v-show="showDropHandler">
+      <div position: absolute;
+        width: 150px;height: 150px; margin-left: 50%;margin-top: 50%;">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <q-btn round color="secondary">
+          <q-icon name="arrow_drop_up"/>
+        </q-btn>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+        <div class="col-4">
+          <q-btn round color="secondary" v-on:dragenter="onDragEnter">
+            <q-icon name="arrow_left"/>
+          </q-btn>
+        </div>
+        <div class="col-4">
+          <q-btn round color="secondary"><q-icon name="aspect_ratio"/></q-btn>
+        </div>
+        <div class="col-4">
+          <q-btn round color="secondary"><q-icon name="arrow_right"/></q-btn>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <q-btn round color="secondary"><q-icon name="arrow_drop_down"/></q-btn>
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
+  </div>
+ -->
+	
  </div>   
 </template>
 
@@ -57,15 +98,9 @@ import splitable from "@/layouts/splitable.vue"
 export default {
     data() {
         return {
-          showDropHandler: true,
+          showDropHandler: false,
         	rate: 50,
-            isHorizontal: true,
-            list: [
-                { name: "John", id: 1 },
-                { name: "Joao", id: 2 },
-                { name: "Jean", id: 3 },
-                { name: "Gerard", id: 4 }
-            ]         
+            isHorizontal: true,            
         };
     },
     methods: {
@@ -76,6 +111,10 @@ export default {
       onDragLeave: function(){
         this.showDropHandler = false;
         console.log("leave");
+      },
+      onHoverLeft: function(flag) {
+        this.showDropHandler = true;
+        console.log(flag);
       }
     }
 }
@@ -83,11 +122,10 @@ export default {
 
 <style>
   .dragHandlerPane {
-    float:left;
-    position:relative;
-    top:50%;
+    
+    position:absolute;
+    /*top:50%;
     left:50%;
-    width: 0px;
-    background-color: green;
+    width: 0px;    */
   }
 </style>

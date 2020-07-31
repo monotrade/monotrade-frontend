@@ -1,8 +1,6 @@
 <template>
   <div class="row" style="background-color: white; height: 100vh">
-  	<div class="col-6">
-    <splitable style="background-color: red;height: 100vh"></splitable>
-</div>
+  	
     <div class="col-6">   
       
       <q-tabs
@@ -32,7 +30,9 @@
       </q-tab-panels>
       
     </div>
-
+<div class="col-6">
+    <splitable style="height: 100vh;background-color:yellow;"></splitable>
+	</div>
     <div class="col-3">      
       <draggable class="list-group" :list="list2" group="people" @change="log">
         <div
