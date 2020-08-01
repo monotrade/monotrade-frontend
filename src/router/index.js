@@ -11,6 +11,10 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
+    name: 'home',
+    redirect: '/dashboard',    
+  }, {
+    path: '/index',
     name: 'index',
     component: () => import('@/layouts/window.vue'),
   },  {

@@ -27,7 +27,12 @@ import VueSocketIO from 'vue-socket.io'
 //import io from "socket.io-server"
 
 
+import { Dark } from 'quasar'
+// 设置状态
+Dark.set(true) // 或者false或者"auto"
 
+// 切换
+//Dark.toggle()
 
 Vue.use(new VueSocketIO({
     debug: true,
