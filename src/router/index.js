@@ -13,8 +13,11 @@ const routes = [{
     path: '/',
     name: 'index',
     component: () => import('@/layouts/window.vue'),
+  },  {
+    path: '/dashboard',
+    component: () => import('@/layouts/dashboard.vue'),
   }, {
-    path: '/dashboard', //延迟加载
+    path: '/dashboarddemo', //延迟加载
     component: () => import('@/pages/Dashboard.vue'),
   },{
     path: '/shopping-cart',
