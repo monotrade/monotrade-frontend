@@ -73,9 +73,9 @@ export default {
           split: 50,
           before_select_index : 0,
           before: [
-              {name:'mails1'},
-              {name:'alarms2'},
-              {name:'movies3'},
+              {name:'mails'},
+              {name:'alarms'},
+              {name:'movies'},
             ],
 
           after_select_index : 0,

@@ -6,13 +6,9 @@
           <q-tab v-for="(p,index) in panels" :name="index" :label="p.name" />
         </q-tabs>
         <q-separator />
-        <q-tab-panels v-model="current" animated>
+        <q-tab-panels v-model="current" animated keep-alive>
           <q-tab-panel v-for="(p,index) in panels" :name="index" style="height:100vh">
-            <div>{{ p.name }}</div>
-            {{ p }}
-
-            <br/>
-            {{ p.name }}
+            <component v-bind:is="p.component" :config="p.config"></component>
           </q-tab-panel>
 
         </q-tab-panels>

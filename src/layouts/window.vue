@@ -1,54 +1,67 @@
 <template>
-  <div class="row" style="background-color: white; height: 100vh">
-  	
-    <div class="col-6">   
-      
-      <q-tabs
-          v-model="tab"
-          dense
-          active-color="primary"
-          indicator-color="primary"
-          align="justify"
-          narrow-indicator
-        >
-
-          <q-tab draggable="true" v-for="(element, index) in list1" :name="element.name" :label="element.name" />
-
-        </q-tabs>
-
-        <q-separator />   
-      
-        <q-tab-panels v-model="tab" animated style="height:300px">
-        <q-tab-panel
-          class="list-group-item"
-          v-for="(element, index) in list1"
-          :key="element.name"
-          :name="element.name"
-        >
-          {{ element.name }} {{ index }}
-        </q-tab-panel>
-      </q-tab-panels>
-      
-    </div>
-    <div class="col-6">
-      <splitable style="height: 100vh;background-color:yellow;"></splitable>
-  	</div>
-    
-
-    <!-- <rawDisplayer class="col-3" :value="list1" title="List 1" />
-
-    <rawDisplayer class="col-3" :value="list2" title="List 2" /> -->
-  </div>
+  <!-- <splitable style="height: 100vh;background-color:yellow;"></splitable> -->
+  <tree-layout :layout="layout"/>
 </template>
 <script>
 // import draggable from "vuedraggable";
 import splitable from "@/layouts/splitable.vue"
+import treeLayout from "@/layouts/tree-layout.vue"
+const myLayout = {
+  split: 50,
+  left: {
+    children: [
+      { 
+        name: "left1", 
+        id: 1,
+        component: require('@/components/trade/stockBuy').default,
+        config: {},
+      },
+      { name: "Joao", id: 2 },
+      { name: "Jean", id: 3 },
+      { name: "Gerard", id: 4 },
+    ],
+  },
+
+  right: {
+    split: 50,
+    top: {
+      split: 50,
+      top: {
+        children: [
+          { name: "rt-t-1", id: 1 },
+          { name: "Joao", id: 2 },
+          { name: "Jean", id: 3 },
+          { name: "Gerard", id: 4 },
+        ],
+      },
+
+      bottom: {
+        children: [
+          { name: "rl-b-1", id: 1 },
+          { name: "Joao", id: 2 },
+          { name: "Jean", id: 3 },
+          { name: "Gerard", id: 4 },
+        ],
+      }
+
+    },
+
+    bottom: {
+      children: [
+        { name: "rr1", id: 1 },
+        { name: "Joao", id: 2 },
+        { name: "Jean", id: 3 },
+        { name: "Gerard", id: 4 },
+      ],
+
+    }
+  },
+};
+
 export default {
-  // name: "two-lists",
-  display: "Two Lists",
-  order: 1,
   components: {
     // draggable,
+    treeLayout,
     splitable
   },
   data() {
@@ -70,7 +83,9 @@ export default {
         { name: "Juan", id: 5 },
         { name: "Edgard", id: 6 },
         { name: "Johnson", id: 7 }
-      ]
+      ],
+
+      layout: myLayout,
     };
   },
   methods: {
