@@ -20,7 +20,7 @@ const myLayout = {
             id: 2,
             component: require('@/pages/dashboard/centerLeft2').default,
             config: {},
-          }]
+          },]
         },
         right : {
           split: 50,
@@ -57,18 +57,29 @@ const myLayout = {
               id: 5,
               component: require('@/pages/dashboard/bottomLeft').default,
               config: {},
-            },
-        ],
-
-    },
-
-    right: {
-      children: [
-          { name: "left4", 
+            },{ name: "left5", 
               id: 5,
               component: require('@/pages/dashboard/bottomRight').default,
               config: {},
             },
+        ],
+
+    },
+    right: {
+      children: [
+          { name: "产品列表", 
+              id: 1,
+              component: require('@/components/ProductList.vue').default,
+              config: {},
+            },{ name: "购物车", 
+              id: 2,
+              component: require('@/components/ShoppingCart.vue').default,
+              config: {},
+            },{ name: "orderbook", 
+            id: 3,
+            component: require('@/components/market/orderBook').default,
+            config: {},
+          },
       ],
 
     }

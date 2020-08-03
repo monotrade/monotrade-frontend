@@ -23,9 +23,6 @@ const nav_data = [
      label: '控制台',
      url: '/',
   }, {
-     label: '购物车',
-     url: '/shopping-cart',
-  }, {
      label: '布局',
      url: '/split-demo',
   }, {

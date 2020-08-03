@@ -3,10 +3,6 @@ import VueRouter from 'vue-router'
 
 import Home from '@/views/Home.vue'
 
-//一次性加载。 下面 routes 中为延迟加载
-// import Profile from 'pages/Profile'
-// import Posts from 'pages/Posts'
-
 Vue.use(VueRouter)
 
 const routes = [{
@@ -23,9 +19,6 @@ const routes = [{
   }, {
     path: '/dashboarddemo', //延迟加载
     component: () => import('@/pages/Dashboard.vue'),
-  },{
-    path: '/shopping-cart',
-    component: () => import('@/pages/shopping-cart.vue'),
   }, {
     path: '/split-demo',
     component: () => import('@/pages/split-demo.vue'),
