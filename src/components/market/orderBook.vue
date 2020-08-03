@@ -36,8 +36,8 @@
 <script>
 import { mapGetters, mapState } from 'vuex'
 export default {
-  name: '五档行情',
-  props: ['symbol'],
+  // name: '五档行情',
+  // props: ['symbol'],
 
   data() {
     return {
