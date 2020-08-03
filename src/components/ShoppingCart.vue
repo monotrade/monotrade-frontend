@@ -1,6 +1,5 @@
 <template>
-  <div class="cart">
-    <h2>Your Cart</h2>
+  <div class="cart">    
     <p v-show="!products.length"><i>Please add some products to cart.</i></p>
     <ul>
       <li

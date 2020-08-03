@@ -46,7 +46,7 @@ export default {
   //Prop 是你可以在组件上注册的一些自定义 attribute,  使用时可以用html 属性，或者用 :xxx 绑定
   // prop 可以是复杂对象
   props: ['symbol'],
-  mixins: [echartMixins],
+  // mixins: [echartMixins],
   mounted() {
     this.draw();
   },

@@ -5,6 +5,8 @@ import Vuex from 'vuex'
 // 购物车 demo
 import cart from './modules/cart'
 import products from './modules/products'
+
+import market from './modules/market'
 //import createLogger from '../../../src/plugins/logger'
 
 Vue.use(Vuex)
@@ -20,7 +22,8 @@ export default new Vuex.Store({
   },
   modules: {
     cart,
-    products
+    products,
+    market
   },
   strict: debug,
   plugins: []//debug ? [createLogger()] : []

@@ -23,9 +23,6 @@ const routes = [{
   }, {
     path: '/dashboarddemo', //延迟加载
     component: () => import('@/pages/Dashboard.vue'),
-  },{
-    path: '/shopping-cart',
-    component: () => import('@/pages/shopping-cart.vue'),
   }, {
     path: '/split-demo',
     component: () => import('@/pages/split-demo.vue'),
