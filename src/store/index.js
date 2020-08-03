@@ -23,7 +23,7 @@ export default new Vuex.Store({
   modules: {
     cart,
     products,
-    market
+    market,
   },
   strict: debug,
   plugins: []//debug ? [createLogger()] : []

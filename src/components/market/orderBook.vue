@@ -2,30 +2,10 @@
   <div class="q-pa-md">
     <q-markup-table dark class="bg-indigo-8">
       <tbody>
-        <tr>
-          <td class="text-left">卖五</td>
-          <td class="text-right">3.204</td>
-          <td class="text-right">2153</td>
-        </tr>
-        <tr>
-          <td class="text-left">卖四</td>
-          <td class="text-right">3.204</td>
-          <td class="text-right">2153</td>
-        </tr>
-        <tr>
-          <td class="text-left">卖三</td>
-          <td class="text-right">3.204</td>
-          <td class="text-right">2153</td>
-        </tr>
-        <tr>
-          <td class="text-left">卖二</td>
-          <td class="text-right">3.204</td>
-          <td class="text-right">2153</td>
-        </tr>
-        <tr>
-          <td class="text-left">卖一</td>
-          <td class="text-right">3.204</td>
-          <td class="text-right">2153</td>
+        <tr v-for="(p, index) in tick.askPrices">
+          <td class="text-left">卖{{5-index}}</td>
+          <td class="text-right">{{p}}</td>
+          <td class="text-right">{{tick.askVolume[index]}}</td>
         </tr>
       </tbody>
     </q-markup-table>
@@ -37,7 +17,7 @@
 import { mapGetters, mapState } from 'vuex'
 export default {
   // name: '五档行情',
-  // props: ['symbol'],
+  props: ['symbol'],
 
   data() {
     return {
@@ -47,11 +27,11 @@ export default {
 
   computed: {
     ...mapState({
-      checkoutStatus: state => state.cart.checkoutStatus
+      tick: state => state.market.ticks['510050.SSHE']
     }),
-    ...mapGetters('cart', {
-      products: 'cartProducts',
-      total: 'cartTotalPrice'
+    ...mapGetters('market', {
+      ticks: 'ticks',
+      // total: 'cartTotalPrice'
     })
   },
   methods: {
@@ -62,11 +42,11 @@ export default {
 
 
   mounted() {
-    this.draw();
+    // this.draw();
   },
 
   destroyed() {
-    window.onresize = null;
+    // window.onresize = null;
   }
 
 }
