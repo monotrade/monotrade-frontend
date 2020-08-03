@@ -1,5 +1,4 @@
 <template>
-  <!-- <splitable style="height: 100vh;background-color:yellow;"></splitable> -->
   <tree-layout :layout="layout"/>
 </template>
 <script>
@@ -62,7 +61,6 @@ export default {
   components: {
     // draggable,
     treeLayout,
-    splitable
   },
   data() {
     return {

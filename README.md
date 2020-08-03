@@ -31,8 +31,6 @@ types	存入数据的MIME类型。如果任意文件被拖拽，那么其中一�
 10 分钟上手 Vue 组件 Vue-Draggable
 https://zhuanlan.zhihu.com/p/84433257
 
-每个位置是一个 tab list
-https://sortablejs.github.io/Vue.Draggable/#/two-lists
 
 
 

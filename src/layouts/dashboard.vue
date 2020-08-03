@@ -3,7 +3,6 @@
 </template>
 <script>
 // import draggable from "vuedraggable";
-// import splitable from "@/layouts/splitable.vue"
 import treeLayout from "@/layouts/tree-layout.vue"
 const myLayout = {
   split: 50,
