@@ -34,14 +34,14 @@ export default {
       tick: state => state.market.ticks[this.symbol]
     }),
     ...mapGetters('market', {
-      ticks: 'ticks',
+      tick: 'store.getters.getTickBySymbol',
       // total: 'cartTotalPrice'
     })
   },
   methods: {
-    checkout (products) {
-      this.$store.dispatch('cart/checkout', products)
-    }
+    // checkout (products) {
+    //   this.$store.dispatch('cart/checkout', products)
+    // }
   },
 
 

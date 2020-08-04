@@ -23,6 +23,11 @@ const actions = {
 
 // getters
 const getters = {
+  getTickBySymbol: (state) => (symbol) => {
+    // return state.ticks.find(tick=>tick.symbol===symbol);
+    return state.ticks[symbol];
+
+  }
 	ticks: (state, getters) => {
     // return getters.cartProducts.reduce((total, product) => {
     //   return total + product.price * product.quantity
