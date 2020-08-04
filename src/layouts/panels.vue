@@ -8,7 +8,7 @@
         <q-separator />
         <q-tab-panels v-model="current" animated keep-alive>
           <q-tab-panel v-for="(p,index) in panels" :name="index" style="height:100vh">
-            <component v-bind:is="p.component" :config="p.config"></component>
+            <component v-bind:is="p.component" v-bind="$attrs.data" :data="p.model"></component>
           </q-tab-panel>
 
         </q-tab-panels>
@@ -22,6 +22,8 @@ export default {
 		return {
 			current: 0,
 		}
-	}
+	},
+  // inheritAttrs: false,
+
 }
 </script>

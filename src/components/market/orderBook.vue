@@ -2,11 +2,12 @@
   <div class="q-pa-md">
     <q-markup-table dark class="bg-indigo-8">
       <tbody>
-        <tr v-for="(p, index) in tick.askPrices">
+       <!--  <tr v-for="(p, index) in tick.askPrices"
+        :key="index">
           <td class="text-left">卖{{5-index}}</td>
           <td class="text-right">{{p}}</td>
           <td class="text-right">{{tick.askVolume[index]}}</td>
-        </tr>
+        </tr> -->
       </tbody>
     </q-markup-table>
   </div>
@@ -17,17 +18,20 @@
 import { mapGetters, mapState } from 'vuex'
 export default {
   // name: '五档行情',
-  props: ['symbol'],
-
+  // props: {
+  //   'symbol':{type:String, default:'--' }
+  // },
+  
   data() {
     return {
-      
+      symbol: '--',
+      // tick: undefined,
     };
   },
 
   computed: {
     ...mapState({
-      tick: state => state.market.ticks['510050.SSHE']
+      tick: state => state.market.ticks[this.symbol]
     }),
     ...mapGetters('market', {
       ticks: 'ticks',
@@ -42,7 +46,11 @@ export default {
 
 
   mounted() {
+
     // this.draw();
+    // console.log(this.symbol);
+    // console.log(this.$attrs.data.symbol);
+    this.symbol = this.$attrs.data.symbol;
   },
 
   destroyed() {
