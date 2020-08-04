@@ -30,13 +30,16 @@ export default {
   },
 
   computed: {
-    ...mapState({
-      tick: state => state.market.ticks[this.symbol]
-    }),
-    ...mapGetters('market', {
-      tick: 'store.getters.getTickBySymbol',
-      // total: 'cartTotalPrice'
-    })
+    tick(){ 
+    return this.$store.getters.getTickBySymbol(this.symbol);
+  }
+    // ...mapState({
+    //   tick: state => store.getters.getTickBySymbol(this.symbol),
+    // }),
+    // ...mapGetters('market', {
+    //   // tick: 'store.getters.getTickBySymbol',
+    //   // total: 'cartTotalPrice'
+    // })
   },
   methods: {
     // checkout (products) {
