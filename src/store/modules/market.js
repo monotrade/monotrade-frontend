@@ -14,7 +14,7 @@ const state = () => ({
 // actions
 const actions = {
   subscribe ({ commit }, symbol) {
-    market.subscribe(tick => {
+    market.subscribe(symbol, tick => {
       commit('updateTick', tick)
     })
   }
@@ -22,7 +22,7 @@ const actions = {
 
 
 // getters  可以认为是 store 的计算属性
-const getters = {
+const getters = {  
   getTickBySymbol: (state) => (symbol) => {
     // return state.ticks.find(tick=>tick.symbol===symbol);
     return state.ticks[symbol];

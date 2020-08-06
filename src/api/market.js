@@ -1,6 +1,6 @@
 import market from '@/types/Market_types'
 
-var tick = Tick({
+var tick = new Tick({
 
 	"symbol" : '510050.SSHE',
 	"exchange" : 'SSHE',
@@ -22,7 +22,7 @@ var tick = Tick({
 
 
 function createTick(symbol){
-	var tick = Tick({
+	var tick = new Tick({
 		symbol: symbol, 
 		askPrices: [0.0,0.0,0.0,0.0,0.0],
 		askVolumes : [1000,2000,3000,4000,5000],
