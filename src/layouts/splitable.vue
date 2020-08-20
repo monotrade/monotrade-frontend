@@ -4,14 +4,14 @@
     v-on:dragleave="onDragLeave"
     style="position:relative;" >
      <div style="position:absolute;background-color: green; width:100%; height: 100vh; z-index: 1;">
-      <q-splitter v-model="split" style="height: 100%;" :horizontal="true">
+      <Split v-model="split" style="height: 100%;" :horizontal="true">
       <template v-slot:before>
         <panels v-bind:panels="before" v-bind:select_index="before_select_index"/>
     </template>
       <template v-slot:after name="after"> 
         <panels v-bind:panels="after" v-bind:select_index="after_select_index"/>
       </template>
-    </q-splitter>
+    </Split>
     </div>
 
     <div name="split-top" v-show="showSplitTop" style="

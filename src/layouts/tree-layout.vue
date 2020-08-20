@@ -4,29 +4,29 @@
       <panels :panels="layout.children" select_index="0"/>
     </div>
     <div v-else-if="layout.hasOwnProperty('left')">
-      <q-splitter v-model="layout.split" style="height: 100vh;">
-      <template v-slot:before>
+      <Split v-model="layout.split" style="height: 100vh;" >
+      <template slot="left">
         <tree-layout :layout="layout.left"/>
     </template>
-      <template v-slot:after name="after"> 
+      <template slot="right" name="after"> 
         <!-- <div style="height: 100vh;">right:{{layout.right}}</div> -->
         <tree-layout :layout="layout.right"/>
       </template>
-    </q-splitter>
+    </Split>
 
       
     </div>
      <div v-else-if="layout.hasOwnProperty('top')">
-        <q-splitter v-model="layout.split" style="height: 100vh;" horizontal>
-          <template v-slot:before>
+        <Split v-model="layout.split" style="height: 100vh;" mode="vertical">
+          <template slot="top">
             <!-- <div style="height: 100vh;">left:{{layout.top}}</div> -->
             <tree-layout :layout="layout.top"/>
         </template>
-          <template v-slot:after name="after"> 
+          <template slot="bottom" name="after"> 
             <!-- <div style="height: 100vh;">right:{{layout.bottom}}</div> -->
             <tree-layout :layout="layout.bottom"/>
           </template>
-        </q-splitter>
+        </Split>
     </div>    
   </div>
 </template>

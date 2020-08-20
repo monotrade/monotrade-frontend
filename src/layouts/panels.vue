@@ -1,18 +1,11 @@
 <template>
-	<q-card>
-        <q-tabs
-          v-model="current" dense class="text-grey" active-color="primary" indicator-color="primary"
-          align="justify" narrow-indicator>
-          <q-tab v-for="(p,index) in panels" :name="index" :label="p.name" />
-        </q-tabs>
-        <q-separator />
-        <q-tab-panels v-model="current" animated keep-alive>
-          <q-tab-panel v-for="(p,index) in panels" :name="index" style="height:100vh">
+	<Card>
+        <Tabs>
+          <TabPane v-for="(p,index) in panels" :name="p.name" :label="p.name"  style="height:100vh">
             <component v-bind:is="p.component" v-bind="$attrs.data" :data="p.model"></component>
-          </q-tab-panel>
-
-        </q-tab-panels>
-      </q-card>
+          </TabPane>
+        </Tabs>
+      </Card>
 </template>
 <script>
 export default {

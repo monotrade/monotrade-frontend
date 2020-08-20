@@ -29,10 +29,6 @@ const routes = [{
     name: 'tree-layout',
     component: () => import('@/layouts/tree-layout.vue'),
   }, {
-    path: '/layoutlet',
-    name: 'layoutlet',
-    component: () => import('@/layouts/layoutlet.vue'),
-  }, {
     path: '/about',
     name: 'About',
     // route level code-splitting

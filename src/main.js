@@ -11,6 +11,12 @@ import store from '@/store';
 import { currency } from '@/currency'
 Vue.filter('currency', currency)
 
+//view-design
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+
+Vue.use(ViewUI);
+
 
 // 将自动注册所有组件为全局组件
 import dataV from '@jiaminghi/data-view';
@@ -27,9 +33,9 @@ import VueSocketIO from 'vue-socket.io'
 //import io from "socket.io-server"
 
 
-import { Dark } from 'quasar'
+//import { Dark } from 'quasar'
 // 设置状态
-Dark.set(true) // 或者false或者"auto"
+//Dark.set(true) // 或者false或者"auto"
 
 // 切换
 //Dark.toggle()
@@ -87,7 +93,9 @@ Vue.config.productionTip = false;
 //import App from './App.vue';
 //导航 ElementUI
 import App from '@/App.vue'
-import '@/quasar'
+// import '@/quasar'
+
+
 
 //import App from './App'	//可以不写 .vue
 // new Vue({

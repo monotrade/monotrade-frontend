@@ -1,15 +1,15 @@
 <template>
-  <div class="q-pa-md">
-    <q-markup-table dark class="bg-indigo-8">
+  <div>
+    <table>
       <tbody>
-        <tr v-for="(p, index) in this.tick.askPrices"
+        <!-- <tr v-for="(p, index) in this.tick.askPrices"
         :key="index">
           <td class="text-left">卖{{5-index}}</td>
           <td class="text-right">{{p}}</td>
           <td class="text-right">{{tick.askVolume[index]}}</td>
-        </tr>
+        </tr> -->
       </tbody>
-    </q-markup-table>
+    </table>
   </div>
 </template>
 
