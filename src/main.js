@@ -28,7 +28,7 @@ Vue.use(dataV);
 //全局引入socket.io
 //npm install vue-socket.io --save
 //npm install socket.io-client --save
-import VueSocketIO from 'vue-socket.io'
+// import VueSocketIO from 'vue-socket.io'
 //import SocketIO from "socket.io-client"
 //import io from "socket.io-server"
 
@@ -40,21 +40,21 @@ import VueSocketIO from 'vue-socket.io'
 // 切换
 //Dark.toggle()
 
-Vue.use(new VueSocketIO({
-    debug: true,
-    connection: 'http://localhost:8080',
+// Vue.use(new VueSocketIO({
+//     debug: true,
+//     connection: 'http://localhost:8080',
 
-    // vuex: {
-    //     store,
-    //     actionPrefix: 'SOCKET_',
-    //     mutationPrefix: 'SOCKET_'
-    // },
-    //origins: '*:*',
-    options: { 
-      path: "/API/", // "/my-app/",
+//     // vuex: {
+//     //     store,
+//     //     actionPrefix: 'SOCKET_',
+//     //     mutationPrefix: 'SOCKET_'
+//     // },
+//     //origins: '*:*',
+//     options: { 
+//       path: "/API/", // "/my-app/",
         
-      } //Optional options
-}))
+//       } //Optional options
+// }))
 //socket可以与vuex结合使用
 //import store from'./yourstore'
 //Vue.use(VueSocketio,socketio('http://socketserver.com:1923'), store);

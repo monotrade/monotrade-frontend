@@ -1,7 +1,7 @@
 <template>
 	<Card>
         <Tabs>
-          <TabPane v-for="(p,index) in panels" :name="p.name" :label="p.name"  style="height:100vh">
+          <TabPane v-for="(p,index) in panels" :name="p.name" :label="p.name">
             <component v-bind:is="p.component" v-bind="$attrs.data" :data="p.model"></component>
           </TabPane>
         </Tabs>
