@@ -4,7 +4,7 @@
       <panels :panels="layout.children" select_index="0"/>
     </div>
     <div v-else-if="layout.hasOwnProperty('left')">
-      <q-splitter v-model="layout.split" style="height: 100vh;">
+      <q-splitter v-model="layout.split">
       <template v-slot:before>
         <tree-layout :layout="layout.left"/>
     </template>
